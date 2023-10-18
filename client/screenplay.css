@@ -1,0 +1,65 @@
+.ProseMirror {
+    font-size: 22px;
+}
+
+.char {
+    margin-left: 30% !important;
+    text-transform: uppercase;
+}
+
+.scene {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.dia {
+    margin-left: 20% !important;
+    margin-right: 10% !important;
+}
+
+.pars {
+    margin-left: 25% !important;
+}
+
+.center {
+    text-align: center;
+}
+
+.ProseMirror p {
+    line-height: 1;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+
+p.section {
+    font-weight: bold;
+}
+
+
+.modifier {
+    opacity: .5;
+    font-weight: normal !important;
+}
+
+.note {
+
+    background: #c6f08694;
+    padding: 2px 7px;
+    color: rgb(37, 37, 37);
+    font-weight: normal;
+    font-style: italic;
+    border-radius: 9px;
+    text-transform: none;
+}
+
+
+.ProseMirror * {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+body.resizing #content {
+    display: none;
+}

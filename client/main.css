@@ -1,0 +1,14 @@
+body {
+  padding: 10px;
+  font-family: sans-serif;
+}
+
+
+.ProseMirror {
+  font-family: 'Courier New', Courier, monospace;
+  height: 100%;
+}
+
+.ProseMirror p {
+  margin: 0;
+}
