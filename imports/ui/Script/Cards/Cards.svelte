@@ -21,12 +21,11 @@
     import NewCardButton from "./NewCardButton.svelte";
 
     CardsClientCollection.remove({});
-    $: {
-        const handle = Meteor.subscribe("cards.script", script._id);
-    }
+    $m: handle = Meteor.subscribe("cards.script", script._id);
 
     // reactive statement to keep track of # of cards
-    $m: cardsCount = CardsCollection.find().count();
+
+    $m: cardsCount = CardsCollection.find({ scriptId: script._id }, { sort: { index: 1 } }).count();
 
     $m: cards = CardsCollection.find({ scriptId: script._id }, { sort: { index: 1 } }).fetch();
 
@@ -58,7 +57,7 @@
 
 <div class="grid">
     {#each cards as card (card._id)}
-        <Card {card} {_state} {script} />
+        <Card {card} {_state} {script} {cardsCount} />
     {/each}
 </div>
 
