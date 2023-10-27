@@ -55,26 +55,26 @@
     window.CardsCollection = CardsCollection;
 </script>
 
-<div class="xx">
-    <div class="grid p-3">
+<div class="wrapper">
+    <div class="cards p-3">
         {#each cards as card (card._id)}
             <Card {card} {_state} {script} {cardsCount} />
         {/each}
+        <NewCardButton {script} {cardsCount} />
     </div>
 </div>
-<NewCardButton {script} {cardsCount} />
 
 <style>
-    .xx {
+    .wrapper {
         width: 100%;
         height: 100%;
         overflow: scroll;
         /* border: 5px solid yellow !important; */
     }
-    .grid {
-        max-width: 800px;
+    .cards {
+        /* max-width: 800px;
         margin: auto;
-        overflow: hidden !important;
+        overflow: hidden !important; */
         /* border: 5px solid yellow; */
 
         /* display: grid;

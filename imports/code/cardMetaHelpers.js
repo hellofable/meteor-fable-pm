@@ -5,8 +5,7 @@ export const cardMetaHelpers = {
     setMeta: function (card) {
         console.log(card);
         const newCard = this.getMeta(card)
-        console.log(newCard);
-        return card
+
         CardsClientCollection.direct.update(newCard._id, newCard)
 
     },

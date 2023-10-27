@@ -7,6 +7,6 @@ CardsClientCollection.before.insert(function (userId, card) {
 });
 
 CardsClientCollection.after.update(function (userId, doc, fieldNames, modifier, options) {
-    console.log("client.after.update");
+
     cardMetaHelpers.setMeta(doc)
 }, { fetchPrevious: false });

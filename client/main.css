@@ -8,3 +8,25 @@ body {
 body.sidebar-closed sidebar {
   display: none !important;
 }
+
+
+body.full-view .cards {
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden !important;
+}
+
+body.full-view .card {
+  margin-bottom: 10px;
+}
+
+body.full-view .card.is-section {
+  margin-bottom: 10px;
+}
+
+body.card-view .cards {
+  display: grid;
+  grid-gap: 7px;
+  grid-auto-rows: 230px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}

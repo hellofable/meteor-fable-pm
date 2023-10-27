@@ -13,8 +13,10 @@
 <style>
     .link {
         position: fixed;
-        top: 0;
+        left: 140px;
+        top: 25px;
         cursor: pointer;
+        opacity: 0.3;
     }
 
     .state {

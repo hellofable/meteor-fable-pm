@@ -11,7 +11,7 @@
     import CardClientJson from "./CardClientJSON.svelte";
 </script>
 
-<div class:is-section={cardClient?.isSection} class="card p-2 pb-3 mb-3 border-0 shadow-sm">
+<div class:is-section={cardClient?.isSection} class="card p-2 pb-3 border-0">
     <CardClientJson {cardClient} />
     <Editor {card} {_state} {script} />
     <CardDropdown {card} {_state} />
@@ -27,5 +27,7 @@
 
     .is-section {
         background: #b1cb95 !important;
+        grid-column-start: 1;
+        grid-column-end: -1;
     }
 </style>
