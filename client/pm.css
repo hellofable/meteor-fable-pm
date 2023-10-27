@@ -1,4 +1,13 @@
 .ProseMirror {
+    height: 100%;
+}
+
+.ProseMirror p {
+    margin: 0;
+}
+
+
+.ProseMirror {
     position: relative;
 }
 

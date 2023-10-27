@@ -19,3 +19,12 @@
         <div class=""><NewScriptButton {_state} /></div>
     </div>
 </div>
+
+<style>
+    .scripts-grid {
+        display: grid;
+        grid-gap: 7px;
+        grid-auto-rows: 230px;
+        grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    }
+</style>

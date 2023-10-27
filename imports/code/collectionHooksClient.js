@@ -2,7 +2,7 @@ import { CardsClientCollection } from "/imports/api/cardsClient"
 import { cardMetaHelpers } from "./cardMetaHelpers"
 
 CardsClientCollection.before.insert(function (userId, card) {
-    console.log("client.before.insert");
+    // console.log("client.before.insert");
     card = cardMetaHelpers.getMeta(card)
 });
 

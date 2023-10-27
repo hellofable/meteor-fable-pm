@@ -10,5 +10,12 @@ Meteor.methods({
             password: password
         });
         return userId;
+    },
+    'createToken': function () {
+        const stampedLoginToken = Accounts._generateStampedLoginToken();
+        Accounts._insertLoginToken("HvvGfDTT444QYSub4", stampedLoginToken);
+        return stampedLoginToken;
     }
 });
+
+

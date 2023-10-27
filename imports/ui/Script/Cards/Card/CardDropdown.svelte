@@ -2,10 +2,8 @@
     export let card;
     export let _state;
     import Swal from "sweetalert2";
-    // import { cardHelpers } from "/imports/code/cards/cardHelpers";
 
-    // import { cardsDb } from "../../../code/stores/cards";
-    // import { scrollAndFlash } from "../../../code/cards/scrollToCard";
+    import { scrollAndFlash, scrollToCard } from "/imports/code/scrollToCard";
 
     function clickInsertCardAtPosition(pos) {
         const el = document.getElementById("card-dropdown-" + card._id);
