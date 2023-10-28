@@ -2,8 +2,9 @@ import { Meteor } from 'meteor/meteor';
 import { CardsCollection } from '/imports/api/cards';
 
 
-async function insertCard(fields) {
-    await CardsCollection.insertAsync({ index: fields.index, text: "", createdAt: new Date(), scriptId: fields.scriptId });
+export async function insertCard(card, userId) {
+
+    await CardsCollection.insertAsync({ index: card.index, text: card.text || "", createdAt: new Date(), scriptId: card.scriptId, userId });
 }
 
 async function updateCard(fields) {
@@ -16,7 +17,9 @@ Meteor.publish('cards.script', function publishScriptsAll(scriptId) {
 
 Meteor.methods({
     'cards.insert'(fields) {
-        insertCard(fields);
+        const userId = Meteor.userId();
+        if (!Meteor.userId()) return
+        insertCard(fields, userId);
     },
     'cards.update'(fields) {
         updateCard(fields);

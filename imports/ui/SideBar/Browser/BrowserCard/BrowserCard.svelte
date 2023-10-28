@@ -3,12 +3,12 @@
 
     import CollapseIcon from "./CollapseIcon.svelte";
 
-    import { CardsCollection } from "/imports/api/cards";
+    import { CardsClientCollection } from "/imports/api/cardsClient";
 
     import { scrollAndFlash, scrollToCard } from "/imports/code/scrollToCard";
     import BrowserCardContents from "./BrowserCardContents.svelte";
 
-    $: hasCollapsedParent = CardsCollection.find({
+    $: hasCollapsedParent = CardsClientCollection.find({
         _id: { $in: card.pids || [] },
         collapsedSidebar: true,
     }).count();
@@ -22,7 +22,7 @@
     $: {
         if (card.pids?.length) {
             const cardId = card.pids[0];
-            const parentCard = CardsCollection.findOne(cardId);
+            const parentCard = CardsClientCollection.findOne(cardId);
             sectionDepth = parentCard.sectionDepth * 10;
         } else {
             // console.log("no pids?");

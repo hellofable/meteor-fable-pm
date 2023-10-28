@@ -13,6 +13,7 @@
 
 <div class:is-section={cardClient?.isSection} class="card p-2 pb-3 border-0">
     <CardClientJson {cardClient} />
+    <!-- {cardClient.collapsed} - {cardClient.collapsedSidebar} -->
     <Editor {card} {_state} {script} />
     <CardDropdown {card} {_state} />
 </div>

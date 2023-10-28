@@ -1,10 +1,10 @@
 <script>
     export let card;
 
-    import { CardsCollection } from "/imports/api/cards";
+    import { CardsClientCollection } from "/imports/api/cardsClient";
 
     function toggle() {
-        CardsCollection.update(card._id, {
+        CardsClientCollection.update(card._id, {
             $set: { collapsedSidebar: !card.collapsedSidebar },
         });
     }

@@ -32,7 +32,7 @@ function shakeCard(cardElement) {
 
 export async function scrollToCard(cardId, behaivor, flash) {
 
-
+    return
 
 
 

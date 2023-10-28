@@ -1,11 +1,14 @@
 import { CardsClientCollection } from "/imports/api/cardsClient"
 import { colorList } from "/imports/api/colorList"
 import removeMd from "remove-markdown";
+
+
+
+
+
 export const cardMetaHelpers = {
     setMeta: function (card) {
-        console.log(card);
         const newCard = this.getMeta(card)
-
         CardsClientCollection.direct.update(newCard._id, newCard)
 
     },
@@ -80,13 +83,11 @@ export const cardMetaHelpers = {
         card.text.startsWith("#") ? card.isSection = true : card.isSection = false
         if (card.isSection) {
             card.sectionDepth = card.text.match(/^#+/g)[0].length
-            card.collapsed = false
-            card.collapsedSidebar = true
         }
         if (!card.isSection) {
             card.sectionDepth = 0
-            card.collapsed = null
         }
         return card
     }
 }
+

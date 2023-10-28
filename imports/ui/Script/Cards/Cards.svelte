@@ -1,11 +1,8 @@
 <script>
     import { Meteor } from "meteor/meteor";
 
-    import { updateEditor } from "./Card/Editor/editorHelpers/updateEditor";
-    import { cardMetaHelpers } from "/imports/code/cardMetaHelpers";
-    import { insertClientCard } from "/imports/code/insertClientCard";
-    import "/imports/code/collectionHooksClient.js";
-
+    import "../../../code/clientCards/collectionHooksClient.js";
+    import { createObserver } from "/imports/code/clientCards/collectionHooksClient";
     // collections
     import { CardsCollection } from "../../../api/cards";
     import { CardsClientCollection } from "/imports/api/cardsClient";
@@ -30,21 +27,7 @@
 
     // watch for changes to card.text and update views in other windows - DISABLED
     onMount(() => {
-        observer = CardsCollection.find().observe({
-            changed: function (newCard, oldCard) {
-                if (newCard.text == oldCard.text) return;
-                const _id = newCard._id;
-                if ($_state.sessionId != newCard.sessionId) {
-                    const editor = document.getElementById("pm-" + _id).instance;
-                    updateEditor(newCard.text, editor);
-                    cardMetaHelpers.setMeta(newCard);
-                }
-            },
-            added: (doc) => {
-                // console.log("add card");
-                insertClientCard(doc);
-            },
-        });
+        observer = createObserver($_state.sessionId);
     });
 
     // DISABLED

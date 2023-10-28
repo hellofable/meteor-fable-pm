@@ -20,7 +20,7 @@
     function formSubmit() {
         submitted = true;
         isValid = schema.isValidSync(fields);
-
+        console.log("ubmitted");
         if (isValid) {
             if (fileContents && showFile) fields.text = fileContents;
             if (fileContents) console.log({ fileContents });

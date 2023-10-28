@@ -13,8 +13,8 @@
 
 <sidebar class="d-flex flex-column">
     <div class="flex-grow-1">
-        <!-- <div class="h-100" class:d-none={$_state.sidebar.selected != "Browser"}><Browser {_state} {meta} /></div>
-        <div class="h-100" class:d-none={$_state.sidebar.selected != "Projects"}><Scripts {meta} {_state} /></div> -->
+        <div class="h-100" class:d-none={$_state.sidebar.selected != "Browser"}><Browser {_state} {meta} /></div>
+        <div class="h-100" class:d-none={$_state.sidebar.selected != "Projects"}><Scripts {meta} {_state} /></div>
     </div>
 </sidebar>
 

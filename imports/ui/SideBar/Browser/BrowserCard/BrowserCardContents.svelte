@@ -3,10 +3,6 @@
     import Notes from "./Notes.svelte";
 
     export let card, _state;
-
-    $: if (card.index == 0) console.log(card);
-
-    if (card.index == 1) console.log(card.colors);
 </script>
 
 <div class="position-relative">
