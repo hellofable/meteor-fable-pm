@@ -1,19 +1,19 @@
 <script>
-    import { CardsCollection } from "/imports/api/cards";
+    import { CardsClientCollection } from "/imports/api/cardsClient";
 
     function collapseAll() {
-        const cards = CardsCollection.find({}).fetch();
+        const cards = CardsClientCollection.find({}).fetch();
         cards.forEach(function (card, index) {
-            CardsCollection.direct.update(card._id, {
+            CardsClientCollection.direct.update(card._id, {
                 $set: { collapsedSidebar: true },
             });
         });
     }
 
     function expandAll() {
-        const cards = CardsCollection.find({}).fetch();
+        const cards = CardsClientCollection.find({}).fetch();
         cards.forEach(function (card, index) {
-            CardsCollection.direct.update(card._id, {
+            CardsClientCollection.direct.update(card._id, {
                 $set: { collapsedSidebar: false },
             });
         });

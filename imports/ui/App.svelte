@@ -25,7 +25,7 @@
   // $: console.log($_currentUser);
 </script>
 
-<State {_state} />
+<!-- <State {_state} /> -->
 {#if !$_currentUser}
   <Login {_state} />
 {/if}

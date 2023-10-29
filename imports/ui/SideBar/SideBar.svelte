@@ -20,7 +20,7 @@
 
 <style>
     sidebar {
-        width: 300px;
+        width: 350px;
         background: #f2f2f2;
         height: 100%;
         overflow: hidden;

@@ -25,7 +25,7 @@
     $m: cardsCount = CardsCollection.find({ scriptId: script._id }, { sort: { index: 1 } }).count();
     $m: cards = CardsCollection.find({ scriptId: script._id }, { sort: { index: 1 } }).fetch();
 
-    // watch for changes to card.text and update views in other windows - DISABLED
+    // watch for changes to card.text and update views in other windows
     onMount(() => {
         observer = createObserver($_state.sessionId);
     });

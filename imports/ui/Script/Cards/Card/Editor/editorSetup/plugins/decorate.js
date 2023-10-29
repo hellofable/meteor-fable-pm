@@ -48,6 +48,7 @@ function getLineType(item, state, pos, index, lines) {
 
     const match = matchLine(lineText)
 
+
     if ((prevLine.lineType == "char" || prevLine.lineType == "dia") && match == "pars") {
         const resolved = state.doc.resolve(pos.start);
         decoration = Decoration.node(resolved.before(), resolved.after(), { class: "pars" });
@@ -70,7 +71,7 @@ function getLineType(item, state, pos, index, lines) {
         return { lineType, decoration, lineText, exists }
     }
 
-    const arr = ["char", "scene", "section", "trans", "center"]
+    const arr = ["char", "scene", "section", "trans", "center", "synopsis"]
     if (arr.includes(match) & firstLineOrPrevEmpty) {
         const resolved = state.doc.resolve(pos.start);
         decoration = Decoration.node(resolved.before(), resolved.after(), { class: match });
@@ -95,5 +96,6 @@ export function matchLine(line) {
     if (line.match(/^\=/i)) return "synopsis";
     if (line.match(/^\(.*\)$/)) return "pars";
     if (line.match(/^\#/)) return "section";
+
     return null;
 }

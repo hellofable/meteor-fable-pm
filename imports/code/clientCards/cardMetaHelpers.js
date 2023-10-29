@@ -7,6 +7,31 @@ import removeMd from "remove-markdown";
 
 
 export const cardMetaHelpers = {
+    getParentCard: function (childCard) {
+        const cards = CardsClientCollection.find({}).fetch()
+        if (childCard.isSection) {
+            // console.log("is section");
+            let filtered = cards.filter(function (el) {
+                return ((el.index < childCard.index) && (el.sectionDepth < childCard.sectionDepth) && el.isSection);
+            });
+            if (filtered.length) {
+                return filtered[filtered.length - 1]
+            }
+        }
+        // child card is a card so find the first section above it
+        if (!childCard.isSection) {
+            let parentCardArr = cards.filter(function (el) {
+                return el.index < childCard.index;
+            });
+            parentCardArr = parentCardArr.reverse()
+            for (let card of parentCardArr) {
+                if (card.isSection) {
+                    return card
+                }
+            }
+            return
+        }
+    },
     setMeta: function (card) {
         const newCard = this.getMeta(card)
         CardsClientCollection.direct.update(newCard._id, newCard)
@@ -17,6 +42,7 @@ export const cardMetaHelpers = {
         card = this.getColors(card)
         card = this.getFirstLine(card)
         card = this.getNotes(card)
+        card.pids = this.getAllParentCards(card)
         return card
     },
     getColors: function (card) {
@@ -88,6 +114,32 @@ export const cardMetaHelpers = {
             card.sectionDepth = 0
         }
         return card
-    }
+    },
+    getAllParentCards: function (childCard, arr) {
+        if (!arr) arr = []
+        const parentCard = this.getParentCard(childCard)
+        if (!parentCard) {
+            if (arr.length) return arr
+            return null
+        }
+        arr.push(parentCard._id)
+        this.getAllParentCards(parentCard, arr)
+        return arr
+    },
+    setAllParentIds: async function () {
+        const cards = CardsClientCollection.find({}, { sort: { index: 1 } }).fetch()
+        cards.forEach(async (card, index) => {
+            const arr = this.getAllParentCards(card)
+            card.pids = arr
+            // console.log(card);
+
+            // update the card, skip collection hook
+            const saved = await CardsClientCollection.direct.update(card._id, {
+                $set: { pids: card.pids },
+            });
+
+
+        })
+    },
 }
 

@@ -6,13 +6,28 @@ import { updateEditor } from "../../ui/Script/Cards/Card/Editor/editorHelpers/up
 
 CardsClientCollection.before.insert(function (userId, card) {
     card.collapsed = false
-    card.collapsedSidebar = false
+    card.collapsedSidebar = true
     card = cardMetaHelpers.getMeta(card)
 });
 
 CardsClientCollection.after.update(function (userId, doc, fieldNames, modifier, options) {
+
+
+
     cardMetaHelpers.setMeta(doc)
-}, { fetchPrevious: false });
+
+    const oldCard = this.previous
+    const newCard = doc
+
+
+    if (oldCard.isSection != newCard.isSection || oldCard.sectionDepth != newCard.sectionDepth) {
+        console.log("set all pids");
+        cardMetaHelpers.setAllParentIds()
+        // cardMetaHelpers.reIndexCards()
+    }
+
+
+}, { fetchPrevious: true });
 
 
 // watches for changes on the server collection

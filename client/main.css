@@ -4,42 +4,81 @@ body {
 }
 
 
+sidebar .browser-cards {
+  /* font-family: 'Courier New', Courier, monospace; */
+  font-family: 'Source Code Pro', monospace;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.2 !important;
+}
+
 
 body.sidebar-closed sidebar {
   display: none !important;
 }
 
 
+
+
+
+
+
+
+
+
+.card {
+
+  background: rgb(243 243 243) !important;
+  position: relative;
+}
+
+.is-section {
+  background: #c3dca9c0 !important;
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
+/* full view */
+
+
 body.full-view .cards {
   max-width: 800px;
   margin: auto;
   overflow: hidden !important;
+
 }
 
 body.full-view .card {
   margin-bottom: 10px;
 }
 
-body.full-view .card.is-section {
-  margin-bottom: 10px;
+
+
+/* end full view */
+
+
+
+/*  card view */
+body.card-view .card .ProseMirror {
+  overflow: scroll;
 }
 
 body.card-view .cards {
   display: grid;
   grid-gap: 7px;
-  grid-auto-rows: 230px;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-}
-
-
-body.card-view .card .ProseMirror {
-  overflow: scroll;
-  padding: 5px 25px;
-  margin-bottom: 25px;
+  /* grid-auto-rows: 230px; */
+  /* grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); */
+  grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
 
 }
 
-.card {
-  padding: 0 !important;
+body.card-view .cards .card {
+  height: 230px;
+}
+
+body.card-view .cards .card.is-section {
+  height: auto;
 
 }
+
+/* end card view */

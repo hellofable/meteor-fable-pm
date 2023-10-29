@@ -4,7 +4,7 @@ import { get, writable } from 'svelte/store';
 
 
 const stateWritable = writable({
-    cardView: false,
+    cardView: true,
     current: {
         script: { title: "" },
         project: { title: "" },
@@ -28,7 +28,7 @@ const stateWritable = writable({
                 synopses: true,
                 firstline: true
             },
-            showOptions: true
+            showOptions: false
 
         },
 

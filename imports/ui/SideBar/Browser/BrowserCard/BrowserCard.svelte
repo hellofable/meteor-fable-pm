@@ -25,9 +25,10 @@
             const parentCard = CardsClientCollection.findOne(cardId);
             sectionDepth = parentCard.sectionDepth * 10;
         } else {
-            // console.log("no pids?");
+            console.log(card.text);
+            console.log("no pids?");
+            sectionDepth = 0;
         }
-
         if (card.isSection) sectionDepth = (card.sectionDepth - 1) * 10;
     }
 </script>
@@ -63,7 +64,6 @@
         color: #000;
     }
     .browser-card {
-        font-size: 17px;
         background: none;
     }
 

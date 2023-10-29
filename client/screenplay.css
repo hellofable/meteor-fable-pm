@@ -1,6 +1,19 @@
 .ProseMirror {
-    font-size: 19px;
+    font-size: 17px;
+    padding: 15px 0 15px 15px;
 }
+
+.cards .ProseMirror p {
+    line-height: 1.2;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0 15px 0 0;
+    /* font-family: 'Source Code Pro', monospace; */
+
+}
+
+
+
 
 .char {
     margin-left: 30% !important;
@@ -25,13 +38,23 @@
     text-align: center;
 }
 
-.ProseMirror p {
-    line-height: 1;
-    margin: 0;
+
+.synopsis {
+    /* background: rgb(232, 232, 232);
+    padding: 7px 25px; */
+    border-radius: 7px;
+    width: 97%;
+    /* font-style: italic; */
+    /* color: rgb(124, 124, 124); */
+    font-weight: 100;
     /* font-family: 'Courier New', Courier, monospace; */
-    font-family: 'Source Code Pro', monospace;
+}
+
+.is-section .synopsis {
+    /* background: rgba(232, 232, 232, 0.439); */
 
 }
+
 
 
 

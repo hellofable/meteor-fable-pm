@@ -27,11 +27,11 @@
 
         <div class="d-flex align-items-center">
             {#if $meta.url != "/"}
-                <CollapseToggles {_state} />
+                <!-- <CollapseToggles {_state} /> -->
                 <ToggleView {_state} />
             {/if}
             {#if $_currentUser}
-                <div class="fixed-width text-end" />
+                <!-- <div class="fixed-width text-end me-2">D</div> -->
             {/if}
         </div>
     </div>
