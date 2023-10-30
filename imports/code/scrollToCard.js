@@ -31,29 +31,17 @@ function shakeCard(cardElement) {
 }
 
 export async function scrollToCard(cardId, behaivor, flash) {
-
-    return
-
-
-
     const el = document.getElementById("card-" + cardId)
-
-
     // we wont have an el if we are in a subsection and the clicked cards isn't a child
     if (!el) {
         shakeCard(document.getElementById("sidebar-item-" + cardId));
         return
     }
-
     const cardIsVisible = el.offsetParent
     if (cardIsVisible) {
         scrollAndFlash(cardId, behaivor, flash)
-
-
         // _state.setKey("active.card", cardId)
     }
-
-
     if (!cardIsVisible) {
         // loop though the parents and scroll to the first visible
         const pids = CardsCollection.findOne(cardId).pids
@@ -88,8 +76,11 @@ export function scrollAndFlash(cardId, behavior, flash) {
 
 
     // const cardAnchor = document.getElementById("card-anchor-" + cardId);
-    const cardAnchor = document.getElementById("card-" + cardId);
+    const cardAnchor = document.getElementById("card-anchor-" + cardId);
     const cardElement = document.getElementById("card-" + cardId);
+
+
+    console.log(cardAnchor);
 
 
     cardAnchor.scrollIntoView({ behavior, block: 'start' });
@@ -101,12 +92,12 @@ export function scrollAndFlash(cardId, behavior, flash) {
     checkElementVisibility(cardElement, () => {
         // console.log('Element is visible');
         if (flash) setTimeout(() => flashCard(cardElement), 200);
-        setTimeout(() => {
-            const textarea = document.getElementById("textarea-" + cardId)
-            textarea.focus()
-            textarea.scrollTop = 0;
-            textarea.setSelectionRange(0, 0);
-        }, 400)
+        // setTimeout(() => {
+        //     const textarea = document.getElementById("textarea-" + cardId)
+        //     textarea.focus()
+        //     textarea.scrollTop = 0;
+        //     textarea.setSelectionRange(0, 0);
+        // }, 400)
 
 
     });

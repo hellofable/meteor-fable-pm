@@ -39,10 +39,12 @@
 </script>
 
 <div class="wrapper">
-    <div class="cards p-3">
+    <div class="cards px-2 pt-2">
         {#each cards as card (card._id)}
             <Card {card} {_state} {script} {cardsCount} />
         {/each}
+    </div>
+    <div class="ps-2 mt-2">
         <NewCardButton {script} {cardsCount} />
     </div>
 </div>

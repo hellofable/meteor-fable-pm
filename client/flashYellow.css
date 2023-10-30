@@ -1,0 +1,37 @@
+@keyframes yellowfade {
+    from {
+        background: rgb(248, 248, 137);
+        border-radius: 10px;
+    }
+
+    to {
+        background: none;
+        border-radius: 10px;
+    }
+}
+
+
+
+
+@keyframes yellowfadeDark {
+    from {
+        background: rgba(248, 248, 137, 0.454) !important;
+    }
+
+    to {
+        background: rgb(94, 94, 94);
+    }
+}
+
+
+body.light .flash-yellow {
+    animation-name: yellowfade;
+    animation-duration: 3s;
+
+}
+
+body.dark .flash-yellow {
+    animation-name: yellowfadeDark;
+    animation-duration: 3s;
+
+}

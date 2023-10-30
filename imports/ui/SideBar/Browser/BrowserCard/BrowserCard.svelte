@@ -25,8 +25,6 @@
             const parentCard = CardsClientCollection.findOne(cardId);
             sectionDepth = parentCard.sectionDepth * 10;
         } else {
-            console.log(card.text);
-            console.log("no pids?");
             sectionDepth = 0;
         }
         if (card.isSection) sectionDepth = (card.sectionDepth - 1) * 10;
@@ -49,29 +47,13 @@
 </div>
 
 <style>
-    .browser-card .card-title {
-        background: white;
-        min-height: 41px;
-    }
-
-    .browser-card .card-title.is-section {
-        background: rgb(238, 243, 226);
+    .card-title {
+        cursor: pointer;
     }
 
     a {
         display: inline-block;
         text-decoration: none;
         color: #000;
-    }
-    .browser-card {
-        background: none;
-    }
-
-    .op-50 {
-        opacity: 0.5;
-    }
-
-    .is-current {
-        box-shadow: 5px 0 0 0 #8cd18c;
     }
 </style>

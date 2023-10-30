@@ -5,11 +5,11 @@
     }
 </script>
 
-<button class="btn rounded-0" on:click={insertCard}>Insert Card</button>
+<button class="btn btn-secondary" on:click={insertCard}>Insert Card</button>
 
 <style>
-    .btn {
+    /* .btn {
         background: rgba(0, 0, 0, 0.1);
         color: white;
-    }
+    } */
 </style>

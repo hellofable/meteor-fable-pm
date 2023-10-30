@@ -23,17 +23,19 @@ body.sidebar-closed sidebar {
 
 
 
+.browser-card {
+  background: rgb(255, 255, 255);
+}
 
 
-
-.card {
-
-  background: rgb(243 243 243) !important;
+.fable-card {
+  background: rgb(243 243 243);
   position: relative;
+  border-radius: 10px;
 }
 
 .is-section {
-  background: #c3dca9c0 !important;
+  background: #c3dca9c0;
   grid-column-start: 1;
   grid-column-end: -1;
 }
@@ -48,7 +50,7 @@ body.full-view .cards {
 
 }
 
-body.full-view .card {
+body.full-view .fable-card {
   margin-bottom: 10px;
 }
 
@@ -59,7 +61,7 @@ body.full-view .card {
 
 
 /*  card view */
-body.card-view .card .ProseMirror {
+body.card-view .fable-card .ProseMirror {
   overflow: scroll;
 }
 
@@ -72,11 +74,11 @@ body.card-view .cards {
 
 }
 
-body.card-view .cards .card {
+body.card-view .cards .fable-card {
   height: 230px;
 }
 
-body.card-view .cards .card.is-section {
+body.card-view .cards .fable-card.is-section {
   height: auto;
 
 }

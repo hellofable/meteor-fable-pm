@@ -81,8 +81,10 @@ export const cardMetaHelpers = {
         firstLine = removeMd(firstLine);                        // remove markdown
         firstLine = firstLine.replace(/^#*/, "");               // remove section hash
         firstLine = firstLine.replace(/- (NIGHT|DAY)/i, "");    //remove NIGHT/DAY
+        if (firstLine.match(/^\./)) firstLine = firstLine.toUpperCase()
         firstLine = firstLine.replace(/^\./i, "");
         card.firstLine = firstLine
+
         return card
     },
     getNotes: function (card) {
