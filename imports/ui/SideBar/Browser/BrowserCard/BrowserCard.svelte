@@ -42,24 +42,19 @@
         <CollapseIcon {card} />
     {/if}
 
-    <a
-        class="w-100 ms-1 fable-card-title p-2 rounded"
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div
+        class="w-100 ms-1 browser-card-title p-2 rounded"
         class:is-section={card.isSection}
         on:click={clickCard}
         href={null}
     >
         <BrowserCardContents {card} {_state} />
-    </a>
+    </div>
 </div>
 
 <style>
-    .fable-card-title {
+    .browser-card-title {
         cursor: pointer;
-    }
-
-    a {
-        display: inline-block;
-        text-decoration: none;
-        color: #000;
     }
 </style>
