@@ -1,0 +1,18 @@
+/* dark */
+body.dark .fable-card {
+    background: #4a4a4a;
+}
+
+body.dark .fable-card.is-section {
+    background: #486847;
+}
+
+
+/* light */
+body.light .fable-card {
+    background: #d7d7d7;
+}
+
+body.light .fable-card.is-section {
+    background: #c3dca9c0;
+}

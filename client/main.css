@@ -24,18 +24,20 @@ body.sidebar-closed sidebar {
 
 
 .browser-card {
-  background: rgb(255, 255, 255);
+  background: none;
 }
 
 
 .fable-card {
-  background: rgb(243 243 243);
+
   position: relative;
   border-radius: 10px;
 }
 
+
+
 .is-section {
-  background: #c3dca9c0;
+
   grid-column-start: 1;
   grid-column-end: -1;
 }
@@ -43,14 +45,21 @@ body.sidebar-closed sidebar {
 /* full view */
 
 
-body.full-view .cards {
+body.page-view .cards {
   max-width: 800px;
+  margin: auto;
+  overflow: hidden !important;
+}
+
+body.page-view.full-width .cards {
+  max-width: 100% !important;
   margin: auto;
   overflow: hidden !important;
 
 }
 
-body.full-view .fable-card {
+
+body.page-view .fable-card {
   margin-bottom: 10px;
 }
 

@@ -15,7 +15,7 @@
     <BrowserOptions {_state} />
     <div class="mx-2"><BrowserOptionsToggle {_state} /></div>
     <!-- <CollapseToggles /> -->
-    <div class="browser-cards flex-grow-1 px-2 pt-2">
+    <div class="browser-cards flex-grow-1 px-2">
         {#each $cards as card, i (card._id)}
             <BrowserCard {card} {_state} {meta} />
         {/each}

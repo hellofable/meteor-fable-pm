@@ -34,7 +34,6 @@
 
 <style>
     #browser-options {
-        background: white;
         border-radius: 3px;
         position: relative;
     }

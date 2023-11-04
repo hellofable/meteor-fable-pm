@@ -31,9 +31,9 @@
                 $_state.hoverTip = "Collape All Cards";
             }}
             on:click={collapseAll}
-            class="btn btn-light border"><i class="bi bi-arrow-bar-up" /></button
+            class="btn border"><i class="bi bi-arrow-bar-up" /></button
         >
-        <button on:click={expandAll} class="btn btn-light border"><i class="bi bi-arrow-bar-down" /></button>
+        <button on:click={expandAll} class="btn border"><i class="bi bi-arrow-bar-down" /></button>
     </div>
 </div>
 

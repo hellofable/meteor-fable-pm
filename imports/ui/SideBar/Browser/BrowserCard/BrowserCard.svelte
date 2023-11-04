@@ -28,11 +28,12 @@
             sectionDepth = 0;
         }
         if (card.isSection) sectionDepth = (card.sectionDepth - 1) * 10;
+        if (!card.isSection) sectionDepth = sectionDepth + 15;
     }
 </script>
 
 <div
-    style="margin-left: {sectionDepth}px"
+    style="margin-left: {0}px"
     class:d-none={hasCollapsedParent}
     class:is-current={$_state.current.card._id == card._id}
     class="mb-1 p-0 rounded browser-card d-flex"
@@ -41,13 +42,18 @@
         <CollapseIcon {card} />
     {/if}
 
-    <a class="w-100 ms-1 card-title p-2 rounded" class:is-section={card.isSection} on:click={clickCard} href={null}>
+    <a
+        class="w-100 ms-1 fable-card-title p-2 rounded"
+        class:is-section={card.isSection}
+        on:click={clickCard}
+        href={null}
+    >
         <BrowserCardContents {card} {_state} />
     </a>
 </div>
 
 <style>
-    .card-title {
+    .fable-card-title {
         cursor: pointer;
     }
 

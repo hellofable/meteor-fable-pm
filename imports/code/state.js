@@ -4,7 +4,11 @@ import { get, writable } from 'svelte/store';
 
 
 const stateWritable = writable({
-    cardView: true,
+    view: {
+        mode: "cards",
+        fullWidth: true,
+        darkMode: false
+    },
     current: {
         script: { title: "" },
         project: { title: "" },

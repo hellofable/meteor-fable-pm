@@ -1,5 +1,6 @@
 <script>
     export let _currentUser;
+    import DarkMode from "./DarkMode.svelte";
     import UserDropdown from "./UserDropdown/UserDropdown.svelte";
     import CollapseToggles from "./CollapseToggles.svelte";
 
@@ -26,10 +27,12 @@
         </div>
 
         <div class="d-flex align-items-center">
+            <DarkMode {_state} />
             {#if $meta.url != "/"}
                 <!-- <CollapseToggles {_state} /> -->
                 <ToggleView {_state} />
             {/if}
+
             {#if $_currentUser}
                 <!-- <div class="fixed-width text-end me-2">D</div> -->
             {/if}
@@ -41,7 +44,6 @@
     navbar {
         width: 100%;
         display: block;
-        background: rgb(218 223 239);
     }
 
     .brand img {

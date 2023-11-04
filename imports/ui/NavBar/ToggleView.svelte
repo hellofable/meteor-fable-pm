@@ -2,19 +2,12 @@
     export let _state;
     // import { scrollToCard } from "/imports/code/scrollToCard.js";
 
-    function setCardView(mode) {
-        if ($_state.lastFocusCardId) {
-            setTimeout(() => {
-                // scrollToCard($_state.lastFocusCardId, "instant", false);
-            }, 100);
+    function setView(mode) {
+        if ($_state.view.mode == "page" && mode == "page") {
+            console.log("same");
+            $_state.view.fullWidth = !$_state.view.fullWidth;
         }
-
-        $_state.cardView = mode;
-
-        $_state.initAllCards = true;
-        setTimeout(() => {
-            $_state.initAllCards = false;
-        }, 100);
+        $_state.view.mode = mode;
     }
 </script>
 
@@ -23,17 +16,17 @@
     <div class="btn-group" role="group" aria-label="Basic outlined example">
         <button
             on:click={() => {
-                setCardView(true);
+                setView("cards");
             }}
-            class:active={$_state.cardView}
+            class:active={$_state.view.mode == "cards"}
             type="button"
             class="btn btn-outline-light"><i class="bi bi-card-text" /></button
         >
         <button
             on:click={() => {
-                setCardView(false);
+                setView("page");
             }}
-            class:active={!$_state.cardView}
+            class:active={$_state.view.mode == "page"}
             type="button"
             class="btn btn-outline-light"><i class="bi bi-file-text" /></button
         >

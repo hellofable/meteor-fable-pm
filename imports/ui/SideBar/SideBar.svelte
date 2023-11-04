@@ -21,7 +21,7 @@
 <style>
     sidebar {
         width: 350px;
-        background: #f2f2f2;
+
         height: 100%;
         overflow: hidden;
         flex-shrink: 0;
