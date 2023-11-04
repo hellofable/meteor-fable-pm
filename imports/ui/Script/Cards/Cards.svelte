@@ -64,7 +64,7 @@
         /* border: 5px solid yellow; */
 
         /* display: grid;
-        grid-gap: 7px;
+        grid-gap: 7px
         grid-auto-rows: 230px;
         grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); */
     }

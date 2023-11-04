@@ -14,6 +14,7 @@
   import Script from "./Script/Script.svelte";
   import Scripts from "./Scripts/Scripts.svelte";
   import State from "./State.svelte";
+  import "animate.css";
 
   onMount(() => {
     $_state.sessionId = makeId();
@@ -45,6 +46,7 @@
   </Route>
 
   <Route path="/" let:meta>
+    <NavBar {_state} {meta} {_currentUser} />
     <Scripts {_state} {meta} />
   </Route>
 {/if}

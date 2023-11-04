@@ -106,3 +106,16 @@ body.card-view .cards .fable-card.is-section {
   background-color: #565656 !important;
   border: none !important;
 }
+
+
+navbar {
+  padding: 8px;
+}
+
+
+body,
+html,
+#app,
+.scripts-grid {
+  height: 100%;
+}

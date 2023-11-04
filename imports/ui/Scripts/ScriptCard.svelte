@@ -33,20 +33,20 @@
         box-shadow: none !important;
     }
 
-    .script-card:hover {
-        background: rgb(221, 221, 221) !important;
-        /* outline: rgb(10, 41, 10) 2px solid; */
-        cursor: pointer;
-    }
     .project-link {
         font-size: 24px;
-    }
-    .script-card {
-        background: rgb(235, 232, 232);
     }
 
     .card-text {
         height: 125px;
         overflow: auto;
+    }
+
+    .script-card {
+        cursor: pointer;
+    }
+
+    p {
+        margin: 0;
     }
 </style>

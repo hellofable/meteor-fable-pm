@@ -20,9 +20,20 @@ export function setCaretToEnd(target) {
 }
 
 function flashCard(cardElement) {
-    let anim = "bounce-out-down"
-    setTimeout(() => { cardElement.classList.add(anim) }, 0);
-    setTimeout(() => { cardElement.classList.remove(anim) }, 1000);
+    let anim = "flash"
+    setTimeout(() => {
+        // cardElement.classList.add(anim)
+        cardElement.classList.add("animate__animated")
+        cardElement.classList.add("animate__" + anim)
+        cardElement.style.setProperty('--animate-duration', '1s');
+    }, 0);
+    setTimeout(() => {
+        cardElement.classList.remove("animate__animated")
+        cardElement.classList.remove("animate__" + anim)
+    }, 500);
+
+
+
 }
 
 function shakeCard(cardElement) {

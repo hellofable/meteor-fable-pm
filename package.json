@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.20.6",
+    "animate.css": "^4.1.1",
     "markdown-it": "^13.0.2",
     "markdown-it-underline": "^1.0.1",
     "meteor-node-stubs": "^1.2.5",
