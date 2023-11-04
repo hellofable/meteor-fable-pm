@@ -15,6 +15,7 @@
   import Scripts from "./Scripts/Scripts.svelte";
   import State from "./State.svelte";
   import "animate.css";
+  import BottomBar from "./BottomBar/BottomBar.svelte";
 
   onMount(() => {
     $_state.sessionId = makeId();
@@ -40,6 +41,7 @@
         <div class="w-100 flex-grow-1 wrap-3">
           <NavBar {_state} {meta} {_currentUser} />
           <Script scriptId={meta.params.sid} {_state} />
+          xxx <BottomBar {_state} {meta} {_currentUser} />xxx
         </div>
       </div>
     </div>
