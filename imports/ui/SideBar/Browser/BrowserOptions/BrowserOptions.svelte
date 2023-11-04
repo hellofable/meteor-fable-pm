@@ -22,7 +22,7 @@
     ];
 </script>
 
-<div class:d-none={!$_state.sidebar.browserOptions.showOptions} id="browser-options" class="p-3 mx-2 shadow-sm pb-3">
+<div class:d-none={!$_state.sidebar.browserOptions.showOptions} id="browser-options" class="p-3 mx-2 pb-3">
     <CollapseButtons {_state} />
 
     <div class="flex-container">

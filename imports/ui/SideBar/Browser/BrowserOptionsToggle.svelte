@@ -6,7 +6,7 @@
     }
 </script>
 
-<button on:click={toggle} class="btn btn-sm toggle p-1 py-0 w-100 border-0">
+<button ID="browser-options-toggle" on:click={toggle} class="btn btn-sm toggle p-1 py-0 w-100 border-0">
     {#if $_state.sidebar.browserOptions.showOptions} <i class="bi bi-chevron-up" />{/if}
     {#if !$_state.sidebar.browserOptions.showOptions} <i class="bi bi-chevron-down" />{/if}
 </button>

@@ -48,6 +48,11 @@
             }),
         });
         editorEl.instance = editor;
+        // editor.dom.addEventListener("drop", (event) => {
+        //     console.log("wjee");
+        //     event.preventDefault();
+        //     return false;
+        // });
     });
 
     onMount(() => {
