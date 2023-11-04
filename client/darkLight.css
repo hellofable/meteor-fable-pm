@@ -5,7 +5,12 @@ body.dark {
 }
 
 body.dark navbar {
-    background: #282828;
+    background: #484646;
+}
+
+
+body.sidebar-open sidebar {
+    background: #484646;
 }
 
 body.dark .fable-card,
@@ -17,11 +22,11 @@ body.dark .browser-card-title {
 
 
 body.dark .is-section {
-    background: rgb(84, 84, 84) !important;
+    /* background: rgb(84, 84, 84); */
 }
 
 body.dark #browser-options {
-    background: rgb(53 53 53);
+    background: rgb(43 43 43);
 }
 
 body.dark #browser-options-toggle {
@@ -48,6 +53,9 @@ body.light #browser-options-toggle {
     background: rgb(235, 235, 235);
 }
 
+body.light #browser-options-toggle:hover {
+    background: rgb(195, 195, 195);
+}
 
 body.light .fable-card {
     background: rgb(235, 235, 235);

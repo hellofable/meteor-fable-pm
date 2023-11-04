@@ -93,3 +93,16 @@ body.card-view .cards .fable-card.is-section {
 }
 
 /* end card view */
+
+
+
+.btn-dark {
+  background-color: #313131 !important;
+  border: none !important;
+  color: rgb(156, 156, 156) !important;
+}
+
+.btn-dark.active {
+  background-color: #565656 !important;
+  border: none !important;
+}

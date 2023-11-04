@@ -21,20 +21,18 @@
     }
 </script>
 
-<div class="">
-    <div class="btn-group" role="group" aria-label="Basic outlined example">
-        <button
-            on:mouseleave={() => {
-                $_state.hoverTip = null;
-            }}
-            on:mouseenter={() => {
-                $_state.hoverTip = "Collape All Cards";
-            }}
-            on:click={collapseAll}
-            class="btn border"><i class="bi bi-arrow-bar-up" /></button
-        >
-        <button on:click={expandAll} class="btn border"><i class="bi bi-arrow-bar-down" /></button>
-    </div>
+<div class="btn-group" role="group" aria-label="Basic outlined example">
+    <button
+        on:mouseleave={() => {
+            $_state.hoverTip = null;
+        }}
+        on:mouseenter={() => {
+            $_state.hoverTip = "Collape All Cards";
+        }}
+        on:click={collapseAll}
+        class="btn"><i class="bi bi-arrow-bar-up" /></button
+    >
+    <button on:click={expandAll} class="btn"><i class="bi bi-arrow-bar-down" /></button>
 </div>
 
 <style>

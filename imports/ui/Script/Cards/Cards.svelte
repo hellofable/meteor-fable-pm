@@ -38,7 +38,7 @@
     window.CardsCollection = CardsCollection;
 </script>
 
-<div class="wrapper">
+<div id="cards-wrapper" class="wrapper">
     <div class="cards pt-2 px-2">
         {#each cards as card (card._id)}
             <Card {card} {_state} {script} {cardsCount} />
@@ -54,6 +54,7 @@
         width: 100%;
         height: 100%;
         overflow: scroll;
+        padding-bottom: 600px;
         /* border: 5px solid yellow !important; */
     }
     .cards {

@@ -20,8 +20,9 @@ export function setCaretToEnd(target) {
 }
 
 function flashCard(cardElement) {
-    setTimeout(() => { cardElement.classList.add("flash-yellow") }, 0);
-    setTimeout(() => { cardElement.classList.remove("flash-yellow") }, 1000);
+    let anim = "bounce-out-down"
+    setTimeout(() => { cardElement.classList.add(anim) }, 0);
+    setTimeout(() => { cardElement.classList.remove(anim) }, 1000);
 }
 
 function shakeCard(cardElement) {
@@ -58,19 +59,6 @@ export async function scrollToCard(cardId, behaivor, flash) {
 
 }
 
-// let scrollingTimer;
-// function x(scrollingTimer, cardElement) {
-//     const cardsEl = document.getElementById("cards")
-//     // Clear the previous timer
-//     clearTimeout(scrollingTimer);
-//     // Set a new timer after the scroll event is triggered
-//     scrollingTimer = setTimeout(function () {
-//         // Scrolling has ended, perform your desired actions here
-//         console.log('Scrolling has ended');
-//         flashCard(cardElement);
-
-//     }, 250); // Adjust the delay (in milliseconds) to your desired threshold
-// }
 
 export function scrollAndFlash(cardId, behavior, flash) {
 
@@ -78,14 +66,10 @@ export function scrollAndFlash(cardId, behavior, flash) {
     // const cardAnchor = document.getElementById("card-anchor-" + cardId);
     const cardAnchor = document.getElementById("card-anchor-" + cardId);
     const cardElement = document.getElementById("card-" + cardId);
+    const cardsWrapper = document.getElementById("cards-wrapper");
 
-
-    console.log(cardAnchor);
-
-
-    cardAnchor.scrollIntoView({ behavior, block: 'start' });
-
-
+    // cardAnchor.scrollIntoView({ behavior, block: 'start' });
+    cardsWrapper.scrollTop = cardElement.offsetTop - 100
 
 
     attempts = 0;

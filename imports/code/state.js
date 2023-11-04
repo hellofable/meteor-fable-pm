@@ -7,7 +7,7 @@ const stateWritable = writable({
     view: {
         mode: "cards",
         fullWidth: true,
-        darkMode: false
+        darkMode: true
     },
     current: {
         script: { title: "" },
@@ -16,7 +16,6 @@ const stateWritable = writable({
             // _id: null
         }
     },
-    darkMode: false,
     modal: {
         name: ""
     },

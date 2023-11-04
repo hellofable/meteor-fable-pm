@@ -12,6 +12,7 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
+
 <div class="p-2">
     <div class="btn-group" role="group" aria-label="Basic outlined example">
         <button
@@ -20,10 +21,10 @@
             }}
             class:active={$_state.view.mode == "cards"}
             type="button"
-            class="btn"
-            class:btn-outline-dark={$_state.view.darkMode}><i class="bi bi-card-text" />
-            
-            </button
+            class:btn-outline-light={!$_state.view.darkMode}
+            class:btn-dark={$_state.view.darkMode}
+            class:border-0={$_state.view.darkMode}
+            class="btn"><i class="bi bi-card-text" /></button
         >
         <button
             on:click={() => {
@@ -31,9 +32,10 @@
             }}
             class:active={$_state.view.mode == "page"}
             type="button"
-            class="btn"
-            class:btn-outline-dark={$_state.view.darkMode}><i class="bi bi-file-text" /><
-                /button
+            class:btn-outline-light={!$_state.view.darkMode}
+            class:btn-dark={$_state.view.darkMode}
+            class:border-0={$_state.view.darkMode}
+            class="btn"><i class="bi bi-file-text" /></button
         >
     </div>
 </div>
