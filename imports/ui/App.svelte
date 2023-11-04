@@ -34,10 +34,12 @@
   <Modal {_state} />
   <Route path="/script/:sid" let:meta>
     <div class="wrap-1 d-flex flex-column vh-100 w-100 overflow-hidden">
-      <NavBar {_state} {meta} {_currentUser} />
       <div class="wrap-2 d-flex flex-grow-1 w-100 overflow-hidden">
         <SideBar {_state} {meta} />
-        <div class="w-100 flex-grow-1 wrap-3"><Script scriptId={meta.params.sid} {_state} /></div>
+        <div class="w-100 flex-grow-1 wrap-3">
+          <NavBar {_state} {meta} {_currentUser} />
+          <Script scriptId={meta.params.sid} {_state} />
+        </div>
       </div>
     </div>
   </Route>

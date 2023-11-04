@@ -3,53 +3,29 @@
     import DarkMode from "./DarkMode.svelte";
     import UserDropdown from "./UserDropdown/UserDropdown.svelte";
     import CollapseToggles from "./CollapseToggles.svelte";
-
+    import NavBarToggle from "./NavBarToggle.svelte";
     import SidebarToggle from "./SidebarToggle.svelte";
     import ToggleView from "./ToggleView.svelte";
     export let _state, meta;
 
     import { onMount } from "svelte";
-    function drag_start(event) {
-        var style = window.getComputedStyle(event.target, null);
-        event.dataTransfer.setData(
-            "text/plain",
-            parseInt(style.getPropertyValue("left"), 10) -
-                event.clientX +
-                "," +
-                (parseInt(style.getPropertyValue("top"), 10) - event.clientY)
-        );
-    }
-    function drag_over(event) {
-        event.preventDefault();
-        return false;
-    }
-    function drop(event) {
-        var offset = event.dataTransfer.getData("text/plain").split(",");
-        var dm = document.getElementById("dragme");
-        dm.style.left = event.clientX + parseInt(offset[0], 10) + "px";
-        dm.style.top = event.clientY + parseInt(offset[1], 10) + "px";
-        event.preventDefault();
-        return false;
-    }
 
-    onMount(() => {
-        var dm = document.getElementById("dragme");
-        dm.addEventListener("dragstart", drag_start, false);
-        document.body.addEventListener("dragover", drag_over, false);
-        document.body.addEventListener("drop", drop, false);
-    });
+    onMount(() => {});
 </script>
 
-<navbar id="dragme" draggable="true" class="user-select-none">
+<navbar id="navbar" class="user-select-none" class:collapsed={!$_state.navbar.collapsed}>
     <div class="d-flex h-100 align-items-center">
-        <div class="fixed-width">
-            {#if $meta.url != "/"} <SidebarToggle {_state} />{/if}
-        </div>
+        {#if $meta.url != "/"} <SidebarToggle {_state} />{/if}
         {#if $meta.url != "/"}
-            <a class:disabled={!$_state.savedStatus.saved} href="/" class="btn btn-light btn-sm me-2 disabled"
+            <a
+                class:disabled={!$_state.savedStatus.saved}
+                href="/"
+                class="btn btn-sm me-2 btn-light"
+                class:btn-dark={$_state.view.darkMode}
                 ><i class="bi bi-chevron-compact-left" /> Scripts
             </a>
         {/if}
+        <!-- <NavBarToggle {_state} /> -->
 
         <div class="flex-grow-1 text-center brand p-2">
             <!-- svelte-ignore a11y-missing-attribute -->
@@ -57,7 +33,7 @@
             {#if !$_state.savedStatus.saved} <img src="/fable-logo-dark.png" />{/if} -->
         </div>
 
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center" class:d-none={$_state.navbar.collapsed}>
             <DarkMode {_state} />
             {#if $meta.url != "/"}
                 <!-- <CollapseToggles {_state} /> -->
@@ -73,19 +49,7 @@
 
 <style>
     navbar {
-        width: 400px;
         display: block;
-        position: fixed;
-        z-index: 123;
-        border-radius: 12px;
-        bottom: 35px;
-        right: 50px;
-        opacity: 0.4;
-        height: 50px;
-    }
-
-    navbar:hover {
-        opacity: 1;
     }
 
     .brand img {

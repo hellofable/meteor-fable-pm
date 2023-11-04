@@ -20,7 +20,10 @@
             }}
             class:active={$_state.view.mode == "cards"}
             type="button"
-            class="btn btn-outline-light"><i class="bi bi-card-text" /></button
+            class="btn"
+            class:btn-outline-dark={$_state.view.darkMode}><i class="bi bi-card-text" />
+            
+            </button
         >
         <button
             on:click={() => {
@@ -28,7 +31,9 @@
             }}
             class:active={$_state.view.mode == "page"}
             type="button"
-            class="btn btn-outline-light"><i class="bi bi-file-text" /></button
+            class="btn"
+            class:btn-outline-dark={$_state.view.darkMode}><i class="bi bi-file-text" /><
+                /button
         >
     </div>
 </div>

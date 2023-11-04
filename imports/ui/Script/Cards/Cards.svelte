@@ -39,7 +39,7 @@
 </script>
 
 <div class="wrapper">
-    <div class="cards px-2 pt-2">
+    <div class="cards pt-2 px-2">
         {#each cards as card (card._id)}
             <Card {card} {_state} {script} {cardsCount} />
         {/each}

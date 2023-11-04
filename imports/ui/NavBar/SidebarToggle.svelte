@@ -6,7 +6,7 @@
     }
 </script>
 
-<button on:click={toggleSidebar} class="btn btn-liunk" type="button" id="sidebar-dropdown">
+<button on:click={toggleSidebar} class="btn" type="button" id="sidebar-dropdown">
     <i class="bi bi-list" />
 </button>
 

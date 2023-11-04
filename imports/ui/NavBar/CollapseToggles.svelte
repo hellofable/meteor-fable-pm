@@ -38,11 +38,4 @@
 </div>
 
 <style>
-    .btn-light {
-        background: rgba(255, 255, 255, 0.2);
-    }
-
-    .btn-light:hover {
-        background: white;
-    }
 </style>

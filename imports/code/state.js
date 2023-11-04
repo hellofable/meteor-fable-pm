@@ -20,6 +20,9 @@ const stateWritable = writable({
     modal: {
         name: ""
     },
+    navbar: {
+        collapsed: false,
+    },
     savedStatus: {
         saving: false,
         saved: true,
