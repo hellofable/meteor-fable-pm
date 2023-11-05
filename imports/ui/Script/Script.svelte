@@ -7,7 +7,10 @@
 
     let script;
     $m: Meteor.subscribe("scripts.one", scriptId);
-    $m: script = ScriptsCollection.findOne(scriptId);
+    $m: {
+        script = ScriptsCollection.findOne(scriptId);
+        $_state.current.script = script;
+    }
 
     Meteor.call("cards.getAll", scriptId, (error, result) => {
         if (error) {
@@ -23,6 +26,10 @@
             console.log("This code will run after a delay.");
             cardMetaHelpers.setAllParentIds();
         }, 1000);
+    });
+
+    onDestroy(() => {
+        $_state.current.script.title = "";
     });
 </script>
 

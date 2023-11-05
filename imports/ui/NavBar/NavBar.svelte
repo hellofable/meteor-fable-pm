@@ -9,6 +9,7 @@
     export let _state, meta;
 
     import { onMount } from "svelte";
+    import Script from "../Script/Script.svelte";
 
     onMount(() => {});
 </script>
@@ -28,6 +29,7 @@
         <!-- <NavBarToggle {_state} /> -->
 
         <div class="flex-grow-1 text-center brand p-2">
+            {$_state.current.script.title}
             <!-- svelte-ignore a11y-missing-attribute -->
             <!-- {#if $_state.savedStatus.saved} <a href="/"> <img src="/fable-logo-dark.png" /></a>{/if}
             {#if !$_state.savedStatus.saved} <img src="/fable-logo-dark.png" />{/if} -->
