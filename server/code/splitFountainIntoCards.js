@@ -2,7 +2,7 @@ import { insertCard } from "../cards"
 
 
 export function splitFountainIntoCards(scriptText) {
-    scriptText = addAtSigns(scriptText)
+    // scriptText = addAtSigns(scriptText)
     const hasCardMarkers = scriptText.match(/\[\[\-\-\-\]\]/g)
     // return splitFountainIntoCardsNoMarkers(scriptText)
     if (!hasCardMarkers) return splitFountainIntoCardsNoMarkers(scriptText)

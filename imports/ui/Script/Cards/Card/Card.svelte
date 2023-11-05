@@ -26,5 +26,6 @@
         border: 10px solid;
         width: 200px;
         opacity: 0;
+        z-index: -2;
     }
 </style>

@@ -23,7 +23,7 @@
 
     onMount(() => {
         setTimeout(() => {
-            console.log("This code will run after a delay.");
+            console.log("This code needs to be fixed so it runs after all the cards are ready, not a delay.");
             cardMetaHelpers.setAllParentIds();
         }, 1000);
     });

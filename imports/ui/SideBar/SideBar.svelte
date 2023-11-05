@@ -2,9 +2,8 @@
     export let _state;
     import { onMount } from "svelte";
     import Browser from "./Browser/Browser.svelte";
-    import Scripts from "./Scripts/Scripts.svelte";
+    import Settings from "./Browser/Settings/Settings.svelte";
 
-    import TopTabs from "./TopTabs/TopTabs.svelte";
     export let meta;
     let trash;
 
@@ -13,8 +12,8 @@
 
 <sidebar class="d-flex flex-column">
     <div class="flex-grow-1">
+        <Settings {_state} />
         <div class="h-100" class:d-none={$_state.sidebar.selected != "Browser"}><Browser {_state} {meta} /></div>
-        <div class="h-100" class:d-none={$_state.sidebar.selected != "Projects"}><Scripts {meta} {_state} /></div>
     </div>
 </sidebar>
 

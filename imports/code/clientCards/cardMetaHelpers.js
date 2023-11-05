@@ -84,7 +84,7 @@ export const cardMetaHelpers = {
         if (firstLine.match(/^\./)) firstLine = firstLine.toUpperCase()
         firstLine = firstLine.replace(/^\./i, "");
         card.firstLine = firstLine
-        console.log(firstLine)
+
         return card
     },
     getNotes: function (card) {

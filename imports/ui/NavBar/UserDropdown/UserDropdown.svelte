@@ -1,6 +1,6 @@
 <script>
     import { Meteor } from "meteor/meteor";
-    export let _state;
+    // export let _state;
     export let _currentUser;
 
     function logout() {

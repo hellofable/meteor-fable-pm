@@ -34,7 +34,8 @@ const stateWritable = writable({
                 synopses: true,
                 firstline: true
             },
-            showOptions: false
+            showOptions: true,
+            topTab: "browserOptions"
 
         },
 
