@@ -33,7 +33,6 @@
 
 <style>
     #browser-options {
-        border-radius: 3px;
         position: relative;
     }
 

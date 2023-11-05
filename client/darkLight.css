@@ -46,7 +46,7 @@ body.light .is-section {
 
 
 body.light #browser-options {
-    background: rgb(241 241 241);
+    background: white;
 }
 
 body.light #browser-options-toggle {
@@ -100,4 +100,18 @@ body.light .script-card {
 
 body.light .script-card .card-text {
     color: rgb(36, 36, 36);
+}
+
+/* top tabs */
+
+body.dark .top-tabs {
+    background: #3b3b3b;
+}
+
+body.light .top-tabs {
+    background: rgb(238 238 238);
+}
+
+.top-tabs .btn {
+    border: 0;
 }
