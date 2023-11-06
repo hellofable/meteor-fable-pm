@@ -13,17 +13,17 @@
                 clickButton("browserOptions");
             }}
             class:active={$_state.sidebar.browserOptions.topTab == "browserOptions"}
-            class="btn btn-light btn-x"
+            class="btn btn-light"
             class:btn-dark={$_state.view.darkMode}
         >
             <i class="bi bi-gear-fill" />
         </button>
         <button
             on:click={() => {
-                clickButton("export");
+                clickButton("exportOptions");
             }}
-            class:active={$_state.sidebar.browserOptions.topTab == "export"}
-            class="btn btn-light btn-x"
+            class:active={$_state.sidebar.browserOptions.topTab == "exportOptions"}
+            class="btn btn-light"
             class:btn-dark={$_state.view.darkMode}
         >
             <i class="bi bi-download" />

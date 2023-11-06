@@ -96,16 +96,13 @@ body.card-view .cards .fable-card.is-section {
 
 
 
-.btn-dark {
-  background-color: #313131 !important;
-  border: none !important;
-  color: rgb(156, 156, 156) !important;
-}
+.btn-dark {}
 
 .btn-dark.active {
-  background-color: #565656 !important;
-  border: none !important;
+  background-color: #282828;
+
 }
+
 
 
 navbar {
@@ -118,4 +115,8 @@ html,
 #app,
 .scripts-grid {
   height: 100%;
+}
+
+.modal-content {
+  border: 0 !important;
 }

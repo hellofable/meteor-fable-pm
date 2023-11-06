@@ -20,14 +20,14 @@
     ];
 </script>
 
-<div class:d-none={!$_state.sidebar.browserOptions.showOptions} id="browser-options" class="">
-    <div class="px-3 py-3">
+<div class="row w-100">
+    <div class="col-md-6">
+        {#each options as option, i}
+            <div class="flex-item"><BrowserOptionSwitch {_state} {option} /></div>
+        {/each}
+    </div>
+    <div class="col-md-6">
         <CollapseButtons {_state} />
-        <div class="flex-container">
-            {#each options as option, i}
-                <div class="flex-item"><BrowserOptionSwitch {_state} {option} /></div>
-            {/each}
-        </div>
     </div>
 </div>
 

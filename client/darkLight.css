@@ -25,9 +25,7 @@ body.dark .is-section {
     /* background: rgb(84, 84, 84); */
 }
 
-body.dark #browser-options {
-    background: rgb(43 43 43);
-}
+
 
 body.dark #browser-options-toggle {
     background: rgb(64, 64, 64);
@@ -45,9 +43,7 @@ body.light .is-section {
 }
 
 
-body.light #browser-options {
-    background: white;
-}
+
 
 body.light #browser-options-toggle {
     background: rgb(235, 235, 235);
@@ -57,12 +53,11 @@ body.light #browser-options-toggle:hover {
     background: rgb(195, 195, 195);
 }
 
-body.light .fable-card {
-    background: rgb(235, 235, 235);
-}
 
-body.light .browser-card-title {
-    background: rgb(235, 235, 235);
+
+body.light .browser-card-title,
+body.light .fable-card {
+    background: rgb(236, 236, 236);
 }
 
 body.light {
@@ -114,4 +109,15 @@ body.light .top-tabs {
 
 .top-tabs .btn {
     border: 0;
+}
+
+
+/* setting panel */
+
+body.light #settings {
+    background: white;
+}
+
+body.dark #settings {
+    background: rgb(43 43 43);
 }

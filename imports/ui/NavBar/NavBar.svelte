@@ -2,8 +2,7 @@
     export let _currentUser;
     import DarkMode from "./DarkMode.svelte";
     import UserDropdown from "./UserDropdown/UserDropdown.svelte";
-    import CollapseToggles from "./CollapseToggles.svelte";
-    import NavBarToggle from "./NavBarToggle.svelte";
+    import Export from "./Export.svelte";
     import SidebarToggle from "./SidebarToggle.svelte";
     import ToggleView from "./ToggleView.svelte";
     export let _state, meta;
@@ -21,7 +20,7 @@
             <a
                 class:disabled={!$_state.savedStatus.saved}
                 href="/"
-                class="btn btn-sm me-2 btn-light"
+                class="btn btn-light btn-sm"
                 class:btn-dark={$_state.view.darkMode}
                 ><i class="bi bi-chevron-compact-left" /> Scripts
             </a>
@@ -36,9 +35,10 @@
         </div>
 
         <div class="d-flex align-items-center" class:d-none={$_state.navbar.collapsed}>
-            <DarkMode {_state} />
             {#if $meta.url != "/"}
                 <!-- <CollapseToggles {_state} /> -->
+                <div class="ms-4"><DarkMode {_state} /></div>
+                <div class="ms-1"><Export {_state} /></div>
                 <ToggleView {_state} />
             {/if}
 

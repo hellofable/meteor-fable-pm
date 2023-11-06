@@ -43,6 +43,7 @@
     {/if}
 
     <!-- svelte-ignore a11y-click-events-have-key-events -->
+
     <div
         class="w-100 ms-1 browser-card-title p-2 rounded"
         class:is-section={card.isSection}

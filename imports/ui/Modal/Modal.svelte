@@ -4,6 +4,7 @@
     import AddProjectForm from "../Forms/Project/AddProjectForm.svelte";
     import AddScriptForm from "../Forms/Script/AddScriptForm.svelte";
     import UpdateScriptForm from "../Forms/Script/UpdateScriptForm.svelte";
+    import ExportScriptForm from "../Forms/ExportScriptForm.svelte";
     let modalTitle;
 
     let mainModal;
@@ -34,6 +35,9 @@
         if ($_state.modal.name == "updateScript") {
             modalTitle = "Rename Script";
         }
+        if ($_state.modal.name == "exportScript") {
+            modalTitle = "Export Script";
+        }
     }
 
     $: if ($_state.modal.name === null) {
@@ -57,6 +61,10 @@
                 {/if}
                 {#if $_state.modal.name == "updateScript"}
                     <UpdateScriptForm />
+                {/if}
+
+                {#if $_state.modal.name == "exportScript"}
+                    <ExportScriptForm />
                 {/if}
             </div>
         </div>

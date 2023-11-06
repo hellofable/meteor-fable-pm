@@ -10,7 +10,7 @@
     {#if $_state.sidebar.browserOptions.show.colors} <ColorChips {card} />{/if}
     {#if $_state.sidebar.browserOptions.show.firstline}
         {"#".repeat(card.sectionDepth)}
-        {@html card.firstLine || ""}
+        {@html card.firstLine || ""} - {card._id}
     {/if}
 
     {#if $_state.sidebar.browserOptions.show.notes} <Notes {card} />{/if}

@@ -2,7 +2,7 @@
     export let _state;
     import { onMount } from "svelte";
     import Browser from "./Browser/Browser.svelte";
-    import Settings from "./Browser/Settings/Settings.svelte";
+    import Settings from "./Settings/Settings.svelte";
 
     export let meta;
     let trash;

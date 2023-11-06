@@ -12,7 +12,7 @@ export const cardMetaHelpers = {
         if (childCard.isSection) {
             // console.log("is section");
             let filtered = cards.filter(function (el) {
-                return ((el.index < childCard.index) && (el.sectionDepth < childCard.sectionDepth) && el.isSection);
+                const x = ((el.index < childCard.index) && (el.sectionDepth < childCard.sectionDepth) && el.isSection);
             });
             if (filtered.length) {
                 return filtered[filtered.length - 1]
@@ -23,7 +23,10 @@ export const cardMetaHelpers = {
             let parentCardArr = cards.filter(function (el) {
                 return el.index < childCard.index;
             });
+            parentCardArr.sort((a, b) => a.index - b.index);
+
             parentCardArr = parentCardArr.reverse()
+
             for (let card of parentCardArr) {
                 if (card.isSection) {
                     return card
@@ -145,3 +148,6 @@ export const cardMetaHelpers = {
     },
 }
 
+
+
+window.cm = cardMetaHelpers
