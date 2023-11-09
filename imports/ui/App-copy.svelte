@@ -27,37 +27,25 @@
   // $: console.log($_currentUser);
 </script>
 
+<!-- <State {_state} /> -->
+{#if !$_currentUser}
+  <Login {_state} />
+{/if}
+
 {#if $_currentUser}
   <Modal {_state} />
   <Route path="/script/:sid" let:meta>
-    <div>
-      <div id="sidebar-wrapper"><SideBar {_state} {meta} /></div>
-      <div id="main" class="d-flex flex-column">
-        <NavBar {_state} {meta} {_currentUser} />
-        <Script scriptId={meta.params.sid} {_state} />
-      </div>
-    </div>
+    <SideBar {_state} {meta} />
+    <NavBar {_state} {meta} {_currentUser} />
+    <Script scriptId={meta.params.sid} {_state} />
+    <BottomBar {_state} {meta} {_currentUser} />
   </Route>
 
   <Route path="/" let:meta>
-    <div id="main" class="d-flex flex-column">
-      <NavBar {_state} {meta} {_currentUser} />
-      <Scripts {_state} {meta} />
-    </div>
+    <NavBar {_state} {meta} {_currentUser} />
+    <Scripts {_state} {meta} />
   </Route>
 {/if}
 
 <style>
-  #sidebar-wrapper {
-    width: 350px;
-    height: 100vh;
-    overflow-y: hidden;
-    float: left;
-  }
-
-  #main {
-    height: 100vh;
-    overflow: hidden;
-    float: right;
-  }
 </style>

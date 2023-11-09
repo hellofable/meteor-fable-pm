@@ -11,23 +11,20 @@
 </script>
 
 <sidebar class="d-flex flex-column">
-    <div class="flex-grow-1">
-        <Settings {_state} />
-        <div class="h-100" class:d-none={$_state.sidebar.selected != "Browser"}><Browser {_state} {meta} /></div>
+    <Settings {_state} />
+    <div id="b" class="flex-grow-1">
+        <Browser {_state} {meta} />
     </div>
 </sidebar>
 
 <style>
-    sidebar {
-        width: 350px;
-        height: 100vh;
-        overflow: hidden;
-        flex-shrink: 0;
+    #b {
+        /* border: 5px solid green; */
+        height: 400px;
     }
-
-    .flex-grow-1 {
-        /* background: red; */
+    sidebar {
         /* border: 5px solid yellow; */
+        height: 100vh;
         overflow: hidden;
     }
 </style>

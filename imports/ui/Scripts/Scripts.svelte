@@ -9,6 +9,8 @@
 
     $m: Meteor.subscribe("scripts.all");
     $m: scripts = ScriptsCollection.find({});
+
+    $_state.sidebar.show = false;
 </script>
 
 <div class="m-2">

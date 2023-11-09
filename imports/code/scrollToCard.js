@@ -79,8 +79,8 @@ export function scrollAndFlash(cardId, behavior, flash) {
     const cardElement = document.getElementById("card-" + cardId);
     const cardsWrapper = document.getElementById("cards-wrapper");
 
-    // cardAnchor.scrollIntoView({ behavior, block: 'start' });
-    cardsWrapper.scrollTop = cardElement.offsetTop - 100
+    cardAnchor.scrollIntoView({ behavior, block: 'start' });
+    // cardsWrapper.scrollTop = cardElement.offsetTop - 100
 
 
     attempts = 0;

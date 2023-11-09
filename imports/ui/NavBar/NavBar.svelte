@@ -13,7 +13,7 @@
     onMount(() => {});
 </script>
 
-<navbar id="navbar" class="user-select-none" class:collapsed={!$_state.navbar.collapsed}>
+<div id="navbar" class="user-select-none p-2" class:collapsed={!$_state.navbar.collapsed}>
     <div class="d-flex h-100 align-items-center">
         {#if $meta.url != "/"} <SidebarToggle {_state} />{/if}
         {#if $meta.url != "/"}
@@ -25,7 +25,6 @@
                 ><i class="bi bi-chevron-compact-left" /> Scripts
             </a>
         {/if}
-        <!-- <NavBarToggle {_state} /> -->
 
         <div class="flex-grow-1 text-center brand p-2 fw-bold">
             {$_state.current?.script?.title}
@@ -47,20 +46,4 @@
             {/if}
         </div>
     </div>
-</navbar>
-
-<style>
-    navbar {
-        display: block;
-    }
-
-    .brand img {
-        height: 30px;
-        opacity: 0.3;
-    }
-
-    .help-text {
-        text-transform: uppercase;
-        font-weight: 300;
-    }
-</style>
+</div>
