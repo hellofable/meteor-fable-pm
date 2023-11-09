@@ -21,12 +21,12 @@
 </script>
 
 <div class="row w-100">
-    <div class="col-md-6">
+    <div class="col-6">
         {#each options as option, i}
             <div class="flex-item"><BrowserOptionSwitch {_state} {option} /></div>
         {/each}
     </div>
-    <div class="col-md-6">
+    <div class="col-6">
         <CollapseButtons {_state} />
     </div>
 </div>
