@@ -124,3 +124,11 @@ html,
 .modal-content {
   border: 0 !important;
 }
+
+
+.browser-card .browser-card-title.has-focus,
+.fable-card.has-focus {
+  box-shadow: 5px 0 0 0 green;
+
+
+}

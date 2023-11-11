@@ -34,13 +34,14 @@
       <div id="sidebar-wrapper"><SideBar {_state} {meta} /></div>
       <div id="main" class="d-flex flex-column">
         <NavBar {_state} {meta} {_currentUser} />
+
         <Script scriptId={meta.params.sid} {_state} />
       </div>
     </div>
   </Route>
 
   <Route path="/" let:meta>
-    <div id="main" class="d-flex flex-column">
+    <div id="" class="d-flex flex-column">
       <NavBar {_state} {meta} {_currentUser} />
       <Scripts {_state} {meta} />
     </div>

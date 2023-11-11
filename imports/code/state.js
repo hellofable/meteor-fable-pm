@@ -13,7 +13,7 @@ const stateWritable = writable({
         script: { title: "" },
         project: { title: "" },
         card: {
-            // _id: null
+            _id: null
         }
     },
     modal: {

@@ -3,7 +3,7 @@
     import Notes from "./Notes.svelte";
     import { scrollToCard } from "/imports/code/scrollToCard";
 
-    export let card, _state;
+    export let card, _state, hasFocus;
 </script>
 
 <div class="card-contents position-relative">

@@ -2,7 +2,7 @@
     import SettingsToggle from "./SettingsToggle.svelte";
     import TopTabs from "./TopTabs.svelte";
     import BrowserOptions from "./BrowserOptions/BrowserOptions.svelte";
-    import ExportOptions from "./ExportOptions/ExportOptions.svelte";
+
     export let _state;
 </script>
 

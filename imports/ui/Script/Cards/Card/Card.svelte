@@ -9,9 +9,13 @@
     $m: cardClient = CardsClientCollection.findOne(card._id);
 
     import CardClientJson from "./CardClientJSON.svelte";
+    let hasFocus = false;
+    $: {
+        hasFocus = $_state.current.card._id === card._id ? true : false;
+    }
 </script>
 
-<div id="card-{card._id}" class:is-section={cardClient?.isSection} class="fable-card border-0">
+<div class:has-focus={hasFocus} id="card-{card._id}" class:is-section={cardClient?.isSection} class="fable-card">
     <!-- <CardClientJson {cardClient} /> -->
     <!-- {cardClient.collapsed} - {cardClient.collapsedSidebar} -->
     <div class="card-anchor" id="card-anchor-{card._id}">&nbsp;</div>

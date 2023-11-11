@@ -15,6 +15,7 @@
 
     function clickCard() {
         // router.location.query.set("card", card._id);
+        $_state.current.card._id = card._id;
         scrollToCard(card._id, "smooth", true);
     }
 
@@ -23,17 +24,26 @@
         if (card.pids?.length) {
             const cardId = card.pids[0];
             const parentCard = CardsClientCollection.findOne(cardId);
-            sectionDepth = parentCard.sectionDepth * 10;
+            sectionDepth = parentCard.sectionDepth;
         } else {
             sectionDepth = 0;
         }
-        if (card.isSection) sectionDepth = (card.sectionDepth - 1) * 10;
-        if (!card.isSection) sectionDepth = sectionDepth + 15;
+        if (card.isSection) sectionDepth = card.sectionDepth - 1;
+        if (!card.isSection) sectionDepth = sectionDepth;
+
+        sectionDepth = sectionDepth * 10;
+        if (!card.isSection) sectionDepth = sectionDepth - 10;
+        if (sectionDepth < 0) sectionDepth = 0;
+    }
+
+    let hasFocus = false;
+    $: {
+        hasFocus = $_state.current.card._id === card._id ? true : false;
     }
 </script>
 
 <div
-    style="margin-left: {0}px"
+    style="margin-left: {sectionDepth}px"
     class:d-none={hasCollapsedParent}
     class:is-current={$_state.current.card._id == card._id}
     class="mb-1 p-0 rounded browser-card d-flex"
@@ -45,12 +55,16 @@
     <!-- svelte-ignore a11y-click-events-have-key-events -->
 
     <div
-        class="w-100 ms-1 browser-card-title p-2 rounded"
+        class="w-100 browser-card-title p-2 rounded"
         class:is-section={card.isSection}
         on:click={clickCard}
         href={null}
+        class:has-focus={hasFocus}
     >
-        <BrowserCardContents {card} {_state} />
+        <div class="d-flex">
+            <!-- <div class="me-2">{sectionDepth}</div> -->
+            <BrowserCardContents {card} {_state} {hasFocus} />
+        </div>
     </div>
 </div>
 

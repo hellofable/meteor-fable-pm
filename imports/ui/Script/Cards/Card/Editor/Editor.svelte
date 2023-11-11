@@ -53,6 +53,9 @@
         //     event.preventDefault();
         //     return false;
         // });
+        editor.dom.addEventListener("focus", (event) => {
+            _state.setKey("current.card._id", card._id);
+        });
     });
 
     onMount(() => {

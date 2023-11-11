@@ -110,7 +110,7 @@ export function matchLine(line) {
     if (!line) return null
     if (line.match(/^\>.*\<$/)) return "center";
     if (line.match(/^@/)) return "char";
-    if (line.match(/^INT|^EXT|^\./i) && !line.match(/^\.\./i)) return "scene";
+    if (line.match(/^INT|^EXT|^\./) && !line.match(/^\.\./i)) return "scene";
     if (line.match(/^>|TO:$/)) return "trans";
     if (line.match(/^\=/i)) return "synopsis";
     if (line.match(/^\(.*\)$/)) return "pars";
