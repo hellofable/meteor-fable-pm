@@ -13,7 +13,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 
-<div class="btn-group" role="group" aria-label="Basic outlined example">
+<div id="view-mode-buttons" class="btn-group" role="group" aria-label="View Mode">
     <button
         on:click={() => {
             setView("cards");

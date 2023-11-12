@@ -1,49 +1,42 @@
 <script>
-    export let _currentUser;
+    export let _currentUser, _state, meta;
     import DarkMode from "./DarkMode.svelte";
-    import UserDropdown from "./UserDropdown/UserDropdown.svelte";
+    import UserDropdown from "./UserDropdown.svelte";
     import Export from "./Export.svelte";
     import SidebarToggle from "./SidebarToggle.svelte";
     import ToggleView from "./ToggleView.svelte";
-    export let _state, meta;
+    import ScriptsButton from "./ScriptsButton.svelte";
+    import ScriptTitle from "./ScriptTitle.svelte";
+    import Logo from "./Logo.svelte";
 
-    import { onMount } from "svelte";
-    import Script from "../Script/Script.svelte";
+    let showFull = false;
 
-    onMount(() => {});
+    $: showFull = $meta.url.startsWith("/script/") ? true : false;
 </script>
 
-<div id="navbar" class="user-select-none p-2" class:collapsed={!$_state.navbar.collapsed}>
-    <div class="d-flex h-100 align-items-center">
-        {#if $meta.url != "/"} <SidebarToggle {_state} />{/if}
-        {#if $meta.url != "/"}
-            <a
-                class:disabled={!$_state.savedStatus.saved}
-                href="/"
-                class="btn btn-light btn-sm"
-                class:btn-dark={$_state.view.darkMode}
-                ><i class="bi bi-chevron-compact-left" /> Scripts
-            </a>
-        {/if}
-
-        <div class="flex-grow-1 text-center brand p-2 fw-bold">
-            {$_state.current?.script?.title}
-            <!-- svelte-ignore a11y-missing-attribute -->
-            <!-- {#if $_state.savedStatus.saved} <a href="/"> <img src="/fable-logo-dark.png" /></a>{/if}
-            {#if !$_state.savedStatus.saved} <img src="/fable-logo-dark.png" />{/if} -->
+{#if showFull}
+    <div id="navbar" class="d-flex w-100 align-items-center">
+        <div class="p-2">
+            <SidebarToggle {_state} />
+            <ScriptsButton {_state} />
         </div>
+        <div class="flex-grow-1 text-center">
+            <ScriptTitle {_state} />
+        </div>
+        <ToggleView {_state} />
+        <Export {_state} />
+        <DarkMode {_state} />
+        <UserDropdown {_state} />
+    </div>
+{/if}
 
-        <div class="d-flex align-items-center" class:d-none={$_state.navbar.collapsed}>
-            {#if $meta.url != "/"}
-                <!-- <CollapseToggles {_state} /> -->
-                <div class="ms-4"><DarkMode {_state} /></div>
-                <div class="ms-1"><Export {_state} /></div>
-                <ToggleView {_state} />
-            {/if}
-
-            {#if $_currentUser}
-                <!-- <div class="fixed-width text-end me-2">D</div> -->
-            {/if}
+{#if !showFull}
+    <div id="navbar" class="d-flex w-100 align-items-center py-2">
+        <div />
+        <div class="flex-grow-1 text-center"><Logo /></div>
+        <div class="d-flex">
+            <DarkMode {_state} />
+            <UserDropdown {_state} />
         </div>
     </div>
-</div>
+{/if}

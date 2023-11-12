@@ -51,6 +51,7 @@ export const createObserver = function (sessionId) {
 
 
 export function insertClientCard(card) {
+
     CardsClientCollection.insert(card)
 }
 

@@ -132,3 +132,27 @@ html,
 
 
 }
+
+body.dark #view-mode-buttons .btn {
+  padding: 7px 12px;
+}
+
+#navbar .btn {
+  margin-right: 5px;
+}
+
+#navbar #view-mode-buttons .btn {
+  margin-right: 0;
+}
+
+#navbar #view-mode-buttons {
+  margin-right: 25px;
+}
+
+body.light #signin-form-wrapper {
+  background: white;
+}
+
+body.dark #signin-form-wrapper {
+  background: black;
+}

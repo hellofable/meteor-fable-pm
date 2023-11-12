@@ -7,7 +7,7 @@
     import { ScriptsCollection } from "/imports/api/scripts";
 
     import { onMount } from "svelte";
-    import UserDropdown from "../NavBar/UserDropdown/UserDropdown.svelte";
+    import UserDropdown from "../NavBar/UserDropdown.svelte";
 
     onMount(() => {
         // projectSub = Meteor.subscribe("projects.one", $meta.params.pid, function () {

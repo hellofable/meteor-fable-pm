@@ -7,7 +7,7 @@ const stateWritable = writable({
     view: {
         mode: "cards",
         fullWidth: true,
-        darkMode: true
+        darkMode: false
     },
     current: {
         script: { title: "" },

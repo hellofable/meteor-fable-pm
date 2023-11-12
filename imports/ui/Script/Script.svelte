@@ -12,14 +12,14 @@
         $_state.current.script = script;
     }
 
-    Meteor.call("cards.getAll", scriptId, (error, result) => {
-        if (error) {
-            console.error("Error calling getValueFromServer:", error);
-        } else {
-            // createClientCards(result);
-            // console.log("Value from server:", result);
-        }
-    });
+    // Meteor.call("cards.getAll", scriptId, (error, result) => {
+    //     if (error) {
+    //         console.error("Error calling getValueFromServer:", error);
+    //     } else {
+    //         // createClientCards(result);
+    //         // console.log("Value from server:", result);
+    //     }
+    // });
 
     onMount(() => {
         setTimeout(() => {

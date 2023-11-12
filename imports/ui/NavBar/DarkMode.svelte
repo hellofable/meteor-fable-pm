@@ -26,7 +26,7 @@
         on:click={() => {
             $_state.view.darkMode = !$_state.view.darkMode;
         }}
-        class="btn btn-dark ms-1"
+        class="btn btn-dark"
     >
         <i class="bi bi-moon-fill" />
     </button>
