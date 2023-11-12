@@ -75,7 +75,7 @@ body.page-view .fable-card {
 
 /*  card view */
 body.card-view .fable-card .ProseMirror {
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 body.card-view .cards {

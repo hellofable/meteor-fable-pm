@@ -11,7 +11,7 @@
     $m: scripts = ScriptsCollection.find({});
 </script>
 
-<div class="m-2">
+<div id="scripts-wrapper" class="m-2">
     <div class="scripts-grid">
         {#each $scripts as script, i}
             <ScriptCard {script} {_state} {meta} />

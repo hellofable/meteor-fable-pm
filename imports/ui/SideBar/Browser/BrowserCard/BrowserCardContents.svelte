@@ -19,5 +19,6 @@
 <style>
     .card-contents {
         min-height: 20px;
+        font-weight: 400;
     }
 </style>
