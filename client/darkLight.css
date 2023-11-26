@@ -33,7 +33,7 @@ body.dark #browser-options-toggle {
 /* light */
 
 body.light #navbar {
-    background: #e0e0e0;
+    background: #dbc1fb;
 }
 
 body.light .is-section {
@@ -55,7 +55,7 @@ body.light #browser-options-toggle:hover {
 
 body.light .browser-card-title,
 body.light .fable-card {
-    background: rgb(236, 236, 236);
+    background: rgb(240, 240, 240);
 }
 
 body.light {
@@ -92,7 +92,7 @@ body.dark .script-card .card-text {
 }
 
 body.light .script-card {
-    background: rgb(204, 204, 204);
+    background: rgb(235, 235, 235);
     border-radius: 11px;
     color: rgb(38, 38, 38);
 }

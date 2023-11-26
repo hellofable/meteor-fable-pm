@@ -24,8 +24,8 @@
             <ScriptTitle {_state} />
         </div>
         <ToggleView {_state} />
-        <Export {_state} />
-        <DarkMode {_state} />
+        <!-- <Export {_state} /> -->
+        <!-- <DarkMode {_state} /> -->
         <UserDropdown {_state} />
     </div>
 {/if}
@@ -35,7 +35,7 @@
         <div />
         <div class="flex-grow-1 text-center"><Logo /></div>
         <div class="d-flex">
-            <DarkMode {_state} />
+            <!-- <DarkMode {_state} /> -->
             <UserDropdown {_state} />
         </div>
     </div>

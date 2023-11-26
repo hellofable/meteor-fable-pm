@@ -3,5 +3,6 @@
 <style>
     img {
         height: 35px;
+        opacity: 0.4;
     }
 </style>
