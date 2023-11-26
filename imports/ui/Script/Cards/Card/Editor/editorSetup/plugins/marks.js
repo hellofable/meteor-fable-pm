@@ -44,7 +44,7 @@ function lintDeco(doc) {
     let decos = []
     lint(doc).forEach(prob => {
         if (prob.msg == "Modifier") decos.push(Decoration.inline(prob.from, prob.to, { class: "modifier" }))
-        if (prob.msg == "Note") decos.push(Decoration.inline(prob.from, prob.to, { class: "note" }))
+        if (prob.msg == "Note") decos.push(Decoration.inline(prob.from, prob.to, { class: "note red" }))
     })
     return DecorationSet.create(doc, decos)
 }
