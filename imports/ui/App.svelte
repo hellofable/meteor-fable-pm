@@ -6,6 +6,7 @@
   import { _state } from "../code/state.js";
   import { makeId } from "../code/makeId.js";
   import { setBodyClasses } from "/imports/code/setBodyClasses.js";
+  import { setGlobalSettings } from "/imports/code/setGlobalSettings.js";
 
   import Modal from "/imports/ui/Modal/Modal.svelte";
   import Login from "/imports/ui/User/Login.svelte";
@@ -21,6 +22,7 @@
   onMount(() => {
     $_state.sessionId = makeId();
     setBodyClasses();
+    setGlobalSettings();
   });
 
   const _currentUser = useTracker(() => Meteor.user());
