@@ -24,7 +24,7 @@
             <ScriptTitle {_state} />
         </div>
         <ToggleView {_state} />
-        <!-- <Export {_state} /> -->
+        <Export {_state} />
         <!-- <DarkMode {_state} /> -->
         <UserDropdown {_state} />
     </div>

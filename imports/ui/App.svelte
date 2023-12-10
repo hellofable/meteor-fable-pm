@@ -18,6 +18,7 @@
   import State from "./State.svelte";
   import "animate.css";
   import BottomBar from "./BottomBar/BottomBar.svelte";
+  import { Meteor } from "meteor/meteor";
 
   onMount(() => {
     $_state.sessionId = makeId();
@@ -25,7 +26,12 @@
     setGlobalSettings();
   });
 
-  const _currentUser = useTracker(() => Meteor.user());
+  let setSettings = false;
+  const _currentUser = useTracker(function () {
+    // if (setSettings) return;
+    // setSettings = true;
+    return Meteor.user();
+  });
 
   // $: console.log($_currentUser);
 </script>

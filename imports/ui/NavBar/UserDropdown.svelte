@@ -19,6 +19,12 @@
         <i class="bi bi-sliders2" />
     </button>
     <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href={null}>Some Stuff</a></li>
+        <li><hr class="dropdown-divider" /></li>
+        <li><a class="dropdown-item" href={null}>Account Info</a></li>
+
+        <li><a on:click={signOut} class="dropdown-item" href={null}>Sign Out</a></li>
+        <li><hr class="dropdown-divider" /></li>
         {#if !$_state.view.darkMode}
             <li>
                 <a
@@ -26,10 +32,13 @@
                         $_state.view.darkMode = !$_state.view.darkMode;
                     }}
                     class="dropdown-item"
-                    href={null}>Dark Mode</a
+                    href={null}
+                >
+                    <i class="bi bi-moon-fill" /></a
                 >
             </li>
         {/if}
+
         {#if $_state.view.darkMode}
             <li>
                 <a
@@ -37,14 +46,10 @@
                         $_state.view.darkMode = !$_state.view.darkMode;
                     }}
                     class="dropdown-item"
-                    href={null}>Light Mode</a
+                    href={null}><i class="bi bi-sun-fill" /></a
                 >
             </li>
         {/if}
-        <li><hr class="dropdown-divider" /></li>
-        <li><a class="dropdown-item" href={null}>Account Info</a></li>
-
-        <li><a on:click={signOut} class="dropdown-item" href={null}>Sign Out</a></li>
     </ul>
 </div>
 

@@ -15,6 +15,10 @@ Meteor.methods({
         const stampedLoginToken = Accounts._generateStampedLoginToken();
         Accounts._insertLoginToken("HvvGfDTT444QYSub4", stampedLoginToken);
         return stampedLoginToken;
+    },
+    'getSettings': function () {
+        const user = Meteor.user()
+        return (user.settings)
     }
 });
 

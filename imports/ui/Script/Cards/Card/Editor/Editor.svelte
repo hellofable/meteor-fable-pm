@@ -38,12 +38,17 @@
     });
 
     onMount(() => {
+        // console.log(JSON.stringify(card.text));
         const html = convertTextToHtml(card.text.trim());
         const domNode = document.createElement("div");
         domNode.innerHTML = html;
+
+        // console.log(html);
+        // pm.setContent(format.fromHTML(pm.schema, "my html", { preserveWhiteSpace: true }));
+
         editor = new EditorView(editorEl, {
             state: EditorState.create({
-                doc: DOMParser.fromSchema(mySchema).parse(domNode),
+                doc: DOMParser.fromSchema(mySchema).parse(domNode, { preserveWhitespace: true }),
                 plugins: editorSetup({ schema: mySchema, menuBar: false }),
             }),
         });

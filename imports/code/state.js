@@ -5,8 +5,8 @@ import { get, writable } from 'svelte/store';
 
 const stateWritable = writable({
     view: {
-        mode: "cards",
-        fullWidth: true,
+        mode: "page",
+        fullWidth: false,
         darkMode: false
     },
     current: {

@@ -9,21 +9,42 @@ export function convertTextToHtml(text) {
     const arr = text.split("\n")
     let htmlOut = ""
 
-    arr.forEach(element => {
-        const leadingSpaces = countLeadingSpaces(element)
+    arr.forEach(elementText => {
+
+        // console.log(JSON.stringify(elementText));
+
+        const leadingSpaces = countLeadingSpaces(elementText)
+
         const md = new MarkdownIt().
             disable(['link', 'image', "lheading", "heading", 'code', 'blockquote', 'table', 'code', 'fence', 'hr', 'list', 'reference', 'html_block', 'linkify', 'smartquotes', 'backticks', 'strikethrough', 'autolink', 'html_inline', 'entity'])
             .use(underline);
 
-        let result = md.render(element);
+        let result = md.render(elementText);
 
 
-
-        if (leadingSpaces && element) {
-            result = addSpacesAfterFirstPTag(result, leadingSpaces)
+        if (result == "" && leadingSpaces) {
+            result = "<p> </p>"
         }
-        if (!element) htmlOut += "<p></p>"
-        if (element) htmlOut += result
+        if (result == "" && !leadingSpaces) {
+            result = "<p></p>"
+        }
+
+
+
+        htmlOut += result
+        // if(leadingSpaces == 1) {
+        //     htmlOut 
+        // }
+
+        // if (leadingSpaces && element) {
+        //     result = addSpacesAfterFirstPTag(result, leadingSpaces)
+        // }
+        // if (!element) {
+        //     htmlOut += "<p></p>"
+        // }
+        // if (element) htmlOut += result
+
+
     });
 
 
@@ -44,9 +65,12 @@ function countLeadingSpaces(str) {
 }
 
 function addSpacesAfterFirstPTag(html, numSpaces) {
+    console.log(html);
     let spaces = '';
     for (let i = 0; i < numSpaces; i++) {
         spaces += ' ';
     }
-    return html.replace('<p>', '<p>' + spaces);
+    const withSpaces = html.replace('<p>', '<p>' + spaces + 1);
+    // console.log(JSON.stringify(withSpaces))
+    return withSpaces
 }

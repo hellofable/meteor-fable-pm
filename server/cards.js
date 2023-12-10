@@ -8,6 +8,7 @@ export async function insertCard(card, userId) {
 }
 
 async function updateCard(fields) {
+
     CardsCollection.update(fields._id, { $set: { html: fields.html, sessionId: fields.sessionId, text: fields.text } });
 }
 
