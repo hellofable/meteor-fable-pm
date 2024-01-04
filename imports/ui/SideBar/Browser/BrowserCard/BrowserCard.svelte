@@ -14,6 +14,7 @@
     }).count();
 
     function clickCard() {
+        //hello
         // router.location.query.set("card", card._id);
         $_state.current.card._id = card._id;
         // if ($_state.view.mode == "cards") scrollToCard(card._id, "smooth", true);
