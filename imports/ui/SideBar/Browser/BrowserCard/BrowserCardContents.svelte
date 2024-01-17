@@ -9,7 +9,7 @@
     $: if (card.firstLine) {
         if (card.firstLine.length > 39) {
             truncated_line = card.firstLine.substring(0, 40) + "...";
-        } else truncated_line;
+        } else truncated_line = card.firstLine;
     }
 </script>
 
