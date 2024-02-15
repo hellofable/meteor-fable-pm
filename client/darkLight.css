@@ -75,19 +75,22 @@ body.dark {
 
 /* script cards */
 
-body.dark .script-card {
+body.dark .script-card,
+body.dark .project-card {
     background: rgb(64, 64, 64);
     border-radius: 11px;
     color: rgb(226, 226, 226);
 }
 
-body.dark .script-card:hover {
+body.dark .script-card:hover,
+body.dark .project-card {
     background: rgb(99, 99, 99);
 
 }
 
 
-body.dark .script-card .card-text {
+body.dark .script-card .card-text,
+body.dark .project-card {
     color: rgb(203, 201, 197);
 }
 

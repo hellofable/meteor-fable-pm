@@ -16,9 +16,11 @@
   import Script from "./Script/Script.svelte";
   import Scripts from "./Scripts/Scripts.svelte";
   import State from "./State.svelte";
+  import Projects from "./Projects/Projects.svelte";
   import "animate.css";
   import BottomBar from "./BottomBar/BottomBar.svelte";
   import { Meteor } from "meteor/meteor";
+  import Project from "./Project/Project.svelte";
 
   onMount(() => {
     $_state.sessionId = makeId();
@@ -39,7 +41,17 @@
 <Modal {_state} />
 
 {#if $_currentUser}
-  <Route path="/script/:sid" let:meta>
+  <Route path="/project/:pid/*" let:meta>
+    <div>
+      <div id="sidebar-wrapper"><SideBar {_state} {meta} /></div>
+      <div id="main" class="d-flex flex-column">
+        <NavBar {_state} {meta} {_currentUser} />
+        <Project projectId={meta.params.sid} {_state} />
+      </div>
+    </div>
+  </Route>
+
+  <!-- <Route path="/script/:sid" let:meta>
     <div>
       <div id="sidebar-wrapper"><SideBar {_state} {meta} /></div>
       <div id="main" class="d-flex flex-column">
@@ -48,13 +60,22 @@
         <Script scriptId={meta.params.sid} {_state} />
       </div>
     </div>
-  </Route>
+  </Route> -->
 
-  <Route let:meta>
+  <!-- <Route let:meta>
     {#if meta.url == "/scripts" || meta.url == "/"}
       <div id="" class="d-flex flex-column">
         <NavBar {_state} {meta} {_currentUser} />
         <Scripts {_state} {meta} />
+      </div>
+    {/if}
+  </Route> -->
+
+  <Route let:meta>
+    {#if meta.url == "/projects" || meta.url == "/"}
+      <div id="" class="d-flex flex-column">
+        <NavBar {_state} {meta} {_currentUser} />
+        <Projects {_state} {meta} />
       </div>
     {/if}
   </Route>
