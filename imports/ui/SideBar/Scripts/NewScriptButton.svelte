@@ -1,8 +1,9 @@
 <script>
-    export let _state;
+    export let _state, meta;
 
     function newScript() {
         $_state.modal.name = "newScript";
+        $_state.modal.projectId = meta.params.pid;
     }
 </script>
 

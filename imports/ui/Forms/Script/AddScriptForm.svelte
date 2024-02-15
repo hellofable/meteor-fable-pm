@@ -4,7 +4,9 @@
     import { _state } from "/imports/code/state";
     import { Meteor } from "meteor/meteor";
     import { onMount } from "svelte";
+    export let meta;
 
+    console.log(meta);
     let showFile = false;
 
     let fileInput, fileContents;
@@ -13,6 +15,8 @@
         title: yup.string().required().max(30).label("Script Title"),
     });
 
+    console.log(schema);
+
     let fields = { title: "", projectId: $_state.modal.projectId };
     let submitted = false;
     let isValid;
@@ -20,7 +24,7 @@
     function formSubmit() {
         submitted = true;
         isValid = schema.isValidSync(fields);
-        console.log("ubmitted");
+        console.log("submitted");
         if (isValid) {
             if (fileContents && showFile) fields.text = fileContents;
             if (fileContents) console.log({ fileContents });
@@ -55,14 +59,8 @@
     $: if (showFile) fileInput.click();
 </script>
 
-<Form {schema} {fields} submitHandler={formSubmit} {submitted}>
-    <input
-        bind:value={fields.title}
-        class="form-control"
-        type="text"
-        placeholder="Script Title"
-        aria-label="default input example"
-    />
+<Form autoComplete="off" {schema} {fields} submitHandler={formSubmit} {submitted}>
+    <input autoComplete="off" bind:value={fields.title} class="form-control" type="text" placeholder="Script Title" />
 
     <div class="ms-1">
         <Message name="title" />
@@ -85,7 +83,9 @@
 
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div on:click={() => (showFile = !showFile)} class="btn btn-sm btn-link p-0">
-        {#if !showFile} import from text/fountain file{/if}
-        {#if showFile} don't import file{/if}
+        {#if !showFile}
+            import from text/fountain file{/if}
+        {#if showFile}
+            don't import file{/if}
     </div>
 </Form>

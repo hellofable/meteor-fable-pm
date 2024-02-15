@@ -16,6 +16,9 @@ Meteor.publish('scripts.one', function publishOneScript(scriptId) {
     return ScriptsCollection.find({ _id: scriptId });
 })
 
+Meteor.publish('scripts.project', function publishOneScript(projectId) {
+    return ScriptsCollection.find({ projectId });
+})
 
 
 Meteor.startup(async () => {
@@ -31,7 +34,7 @@ Meteor.startup(async () => {
 
 // insert a script from method
 async function insertScript(fields, userId) {
-    const scriptId = await ScriptsCollection.insertAsync({ title: fields.title, inTrash: fields.inTrash, createdAt: new Date(), userId });
+    const scriptId = await ScriptsCollection.insertAsync({ projectId: fields.projectId, title: fields.title, inTrash: fields.inTrash, createdAt: new Date(), userId });
 
     if (fields.text) addCardsOnImport(fields, userId, scriptId)
 
@@ -40,6 +43,7 @@ async function insertScript(fields, userId) {
 
 Meteor.methods({
     'scripts.insert'(fields) {
+        console.log(fields);
         const userId = Meteor.userId();
         if (!Meteor.userId()) return
         fields.inTrash = false

@@ -7,17 +7,15 @@
 
     export let _state, meta;
 
-    $m: Meteor.subscribe("scripts.all");
+    $m: Meteor.subscribe("scripts.project", meta.params.pid);
     $m: scripts = ScriptsCollection.find({});
 </script>
 
-<div id="scripts-wrapper" class="m-2">
-    <div class="scripts-grid">
-        {#each $scripts as script, i}
-            <ScriptCard {script} {_state} {meta} />
-        {/each}
-        <div class=""><NewScriptButton {_state} /></div>
-    </div>
+<div id="scripts-wrapper" class="mx-2">
+    {#each $scripts as script, i}
+        <ScriptCard {script} {_state} {meta} />
+    {/each}
+    <div class="mt-2"><NewScriptButton {_state} {meta} /></div>
 </div>
 
 <style>

@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    export let _state;
+    export let _state, meta;
     import AddProjectForm from "../Forms/Project/AddProjectForm.svelte";
     import AddScriptForm from "../Forms/Script/AddScriptForm.svelte";
     import UpdateScriptForm from "../Forms/Script/UpdateScriptForm.svelte";
@@ -57,7 +57,7 @@
                     <AddProjectForm />
                 {/if}
                 {#if $_state.modal.name == "newScript"}
-                    <AddScriptForm />
+                    <AddScriptForm {meta} />
                 {/if}
                 {#if $_state.modal.name == "updateScript"}
                     <UpdateScriptForm />

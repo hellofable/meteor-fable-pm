@@ -1,9 +1,9 @@
 <script>
     export let _state;
     import { onMount } from "svelte";
-    import TopTabs from "./Settings/TopTabs.svelte";
+    import TopTabs from "./TopTabs/TopTabs.svelte";
     import Browser from "./Browser/Browser.svelte";
-    import Settings from "./Settings/Settings.svelte";
+    import Scripts from "./Scripts/Scripts.svelte";
 
     export let meta;
     let trash;
@@ -12,18 +12,18 @@
 </script>
 
 <sidebar class="d-flex flex-column">
-    <TopTabs />
-    <Settings {_state} />
-    <div id="b" class="flex-grow-1">
+    <TopTabs {_state} />
+
+    {#if $_state.sidebar.selected == "browser"}
         <Browser {_state} {meta} />
-    </div>
+    {/if}
+
+    {#if $_state.sidebar.selected == "scripts"}
+        <Scripts {_state} {meta} />
+    {/if}
 </sidebar>
 
 <style>
-    #b {
-        /* border: 5px solid green; */
-        height: 400px;
-    }
     sidebar {
         /* border: 5px solid yellow; */
         height: 100vh;

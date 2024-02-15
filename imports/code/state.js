@@ -35,11 +35,10 @@ const stateWritable = writable({
                 firstline: true
             },
             showOptions: true,
-            topTab: "browserOptions"
+
 
         },
-
-        selected: "Browser",
+        selected: "scripts",
         show: true,
         showOptions: false,
         inTrash: false

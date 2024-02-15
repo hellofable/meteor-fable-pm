@@ -13,8 +13,7 @@
   import Account from "./Account/Account.svelte";
   import NavBar from "./NavBar/NavBar.svelte";
   import SideBar from "./SideBar/SideBar.svelte";
-  import Script from "./Script/Script.svelte";
-  import Scripts from "./Scripts/Scripts.svelte";
+
   import State from "./State.svelte";
   import Projects from "./Projects/Projects.svelte";
   import "animate.css";

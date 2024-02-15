@@ -4,13 +4,13 @@
     import { router } from "tinro";
 
     function openScript(evt) {
-        router.goto(`/script/${script._id}`);
+        router.goto(`/project/${script.projectId}/script/${script._id}`);
     }
 </script>
 
 <!-- svelte-ignore missing-declaration -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div class="script-card border-0 p-3">
+<div class="script-card border-0 p-3 mb-2">
     <div on:click={openScript} class="card-body">
         <div class="d-flex w-100">
             <div class="card-title h4">

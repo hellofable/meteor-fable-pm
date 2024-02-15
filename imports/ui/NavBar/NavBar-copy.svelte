@@ -1,56 +1,42 @@
 <script>
-    export let _currentUser;
+    export let _currentUser, _state, meta;
     import DarkMode from "./DarkMode.svelte";
     import UserDropdown from "./UserDropdown.svelte";
     import Export from "./Export.svelte";
     import SidebarToggle from "./SidebarToggle.svelte";
     import ToggleView from "./ToggleView.svelte";
-    export let _state, meta;
+    import ScriptsButton from "./ScriptsButton.svelte";
+    import ScriptTitle from "./ScriptTitle.svelte";
+    import Logo from "./Logo.svelte";
 
-    import { onMount } from "svelte";
+    let showFull = false;
 
-    onMount(() => {});
-
-    $: console.log($meta.url);
+    $: showFull = $meta.url.startsWith("/project/") ? true : false;
 </script>
 
-<div id="navbar" class="user-select-none p-2" class:collapsed={!$_state.navbar.collapsed}>
-    <div class="d-flex h-100 align-items-center">
-        {#if $meta.url.startsWith("/script/")}
+{#if showFull}
+    <div id="navbar" class="d-flex w-100 align-items-center">
+        <div class="p-2">
             <SidebarToggle {_state} />
-
-            <a
-                class:disabled={!$_state.savedStatus.saved}
-                href="/scripts"
-                class="btn btn-light btn-sm"
-                class:btn-dark={$_state.view.darkMode}
-                ><i class="bi bi-chevron-compact-left" /> Scripts
-            </a>
-        {/if}
-
-        <div class="flex-grow-1 text-center brand fw-bold">
-            {$_state.current?.script?.title}
-
-            {#if $meta.url == "/scripts"} <img id="logo" src="/fable-logo-dark.png" />{/if}
+            <ScriptsButton {_state} />
         </div>
+        <div class="flex-grow-1 text-center">
+            <ScriptTitle {_state} />
+        </div>
+        <ToggleView {_state} />
+        <Export {_state} />
+        <!-- <DarkMode {_state} /> -->
+        <UserDropdown {_state} />
+    </div>
+{/if}
 
-        <div class="d-flex align-items-center" class:d-none={$_state.navbar.collapsed}>
-            <!-- <CollapseToggles {_state} /> -->
-            <div class="ms-4"><DarkMode {_state} /></div>
-            {#if $meta.url.startsWith("/script/")}
-                <div class="ms-1"><Export {_state} /></div>
-                <ToggleView {_state} />
-            {/if}
-
-            {#if $_currentUser}
-                <!-- <div class="fixed-width text-end me-2">D</div> -->
-            {/if}
+{#if !showFull}
+    <div id="navbar" class="d-flex w-100 align-items-center py-2">
+        <div />
+        <div class="flex-grow-1 text-center"><Logo /></div>
+        <div class="d-flex">
+            <!-- <DarkMode {_state} /> -->
+            <UserDropdown {_state} />
         </div>
     </div>
-</div>
-
-<style>
-    #logo {
-        height: 35px;
-    }
-</style>
+{/if}

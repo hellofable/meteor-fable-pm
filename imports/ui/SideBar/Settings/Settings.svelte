@@ -1,6 +1,6 @@
 <script>
     import SettingsToggle from "./SettingsToggle.svelte";
-    import TopTabs from "./TopTabs.svelte";
+    // import TopTabs from "./TopTabs.svelte";
     import BrowserOptions from "./BrowserOptions/BrowserOptions.svelte";
 
     export let _state;
