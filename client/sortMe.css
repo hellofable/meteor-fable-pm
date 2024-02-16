@@ -13,9 +13,22 @@
 
 .cm-editor {
     height: calc(100vh - 55px);
+
+    font-size: 19px;
 }
 
 .cm-minimap-gutter {
     background: none;
     opacity: 0.3;
+}
+
+.cm-scroller {
+
+    font-family: 'Source Code Pro' !important;
+
+}
+
+span[title="Fold line"] {
+    position: relative;
+    top: -5px;
 }

@@ -12,9 +12,13 @@
     let script;
     $m: Meteor.subscribe("scripts.one", meta.params.sid);
     $m: {
-        script = ScriptsCollection.findOne(meta.params.sid);
-        console.log(script?.title);
-        $_state.current.script = script;
+        script = null;
+        setTimeout(() => {
+            script = ScriptsCollection.findOne(meta.params.sid);
+        }, "200");
+
+        // console.log(script?.title);
+        // $_state.current.script = script;
     }
 
     onMount(() => {});
@@ -44,7 +48,7 @@
 <style>
     .script {
         background: #ede7df;
-        /* height: calc(100vh - 55px); */
+
         overflow: hidden;
     }
 </style>
