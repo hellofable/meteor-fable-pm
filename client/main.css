@@ -5,25 +5,11 @@ body {
 }
 
 
-sidebar .browser-cards {
-  font-family: 'Source Code Pro', monospace;
-  font-size: 17px;
-  font-weight: 300;
-  line-height: 1.2 !important;
-}
 
 
-body.sidebar-closed #sidebar-wrapper {
-  display: none !important;
-}
 
-body.sidebar-open #main {
-  width: calc(100% - 350px);
-}
 
-body.sidebar-closed #main {
-  width: 100%;
-}
+
 
 
 

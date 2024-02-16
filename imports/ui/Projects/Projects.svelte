@@ -1,7 +1,7 @@
 <script>
     import { onMount, onDestroy } from "svelte";
     import { ProjectsCollection } from "/imports/api/projects";
-
+    import NavBar from "../NavBar/NavBar.svelte";
     import NewProjectButton from "./NewProjectButton.svelte";
     import ProjectCard from "./ProjectCard.svelte";
 
@@ -11,6 +11,7 @@
     $m: projects = ProjectsCollection.find({});
 </script>
 
+<NavBar {meta} {_state} />
 <div id="projects-wrapper" class="m-2">
     <div class="projects-grid">
         {#each $projects as project, i}

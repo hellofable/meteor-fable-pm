@@ -7,7 +7,7 @@
     }
 </script>
 
-<div class="dropdown me-1">
+<div class="dropdown me-1 p-2">
     <button
         class="btn border-0"
         class:btn-light={!$_state.view.darkMode}

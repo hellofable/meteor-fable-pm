@@ -11,7 +11,7 @@
     onMount(() => {});
 </script>
 
-<sidebar class="d-flex flex-column">
+<sidebar class:d-none={$_state.sidebar.show} class="d-flex flex-column">
     <TopTabs {_state} />
 
     {#if $_state.sidebar.selected == "browser"}
@@ -28,5 +28,6 @@
         /* border: 5px solid yellow; */
         height: 100vh;
         overflow: hidden;
+        flex: 0 0 350px;
     }
 </style>
