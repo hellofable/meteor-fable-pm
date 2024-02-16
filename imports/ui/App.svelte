@@ -32,11 +32,14 @@
 </script>
 
 <Modal {_state} />
-
-<Route path="/project/:pid/*" let:meta>
-  <Project {_state} {meta} />
-</Route>
-
-<Route path="/projects" let:meta>
-  <Projects {_state} {meta} />
-</Route>
+{#if $_currentUser}
+  <div class="d-flex">
+    <SideBar {_state}></SideBar>
+    <div class="d-flex flex-column w-100">
+      <NavBar {_state}></NavBar>
+      <Route path="/project/:pid/*" let:meta>
+        <Project {meta} {_state} />
+      </Route>
+    </div>
+  </div>
+{/if}

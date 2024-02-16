@@ -3,7 +3,7 @@
     import { onMount } from "svelte";
     import TopTabs from "./TopTabs/TopTabs.svelte";
     import Browser from "./Browser/Browser.svelte";
-    import Scripts from "./Scripts/Scripts.svelte";
+    import Projects from "../Projects/Projects.svelte";
 
     export let meta;
     let trash;
@@ -18,8 +18,8 @@
         <Browser {_state} {meta} />
     {/if}
 
-    {#if $_state.sidebar.selected == "scripts"}
-        <Scripts {_state} {meta} />
+    {#if $_state.sidebar.selected == "projects"}
+        <Projects {_state} />
     {/if}
 </sidebar>
 

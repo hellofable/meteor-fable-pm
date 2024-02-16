@@ -13,16 +13,13 @@
 
 <div id="navbar" class="d-flex w-100 align-items-center">
     <div class="p-2">
-        {#if meta.params.pid}
-            <SidebarToggle {_state} />
-            <ScriptsButton {_state} />
-        {/if}
+        <SidebarToggle {_state} />
     </div>
 
     <div class="flex-grow-1 text-center">
         <ScriptTitle {_state} />{$_state.current?.project?.title}
     </div>
-    {#if meta.params.pid}
+    {#if meta?.params.pid}
         <ToggleView {_state} />
         <Export {_state} />
     {/if}

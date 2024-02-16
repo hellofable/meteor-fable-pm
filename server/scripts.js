@@ -13,7 +13,9 @@ Meteor.publish('scripts.all', function publishScriptsAll() {
 })
 
 Meteor.publish('scripts.one', function publishOneScript(scriptId) {
-    return ScriptsCollection.find({ _id: scriptId });
+    const script = ScriptsCollection.find({ _id: scriptId });
+
+    return script
 })
 
 Meteor.publish('scripts.project', function publishOneScript(projectId) {
@@ -21,48 +23,30 @@ Meteor.publish('scripts.project', function publishOneScript(projectId) {
 })
 
 
-Meteor.startup(async () => {
-    // If the Links collection is empty, add some data.
-    // if (await ScriptsCollection.find().countAsync() === 0) {
-    //     console.log("inserting script")
-    //     await insertScript({
-    //         title: 'Lost in Translation',
-    //         synopsis: 'Some movie about something.',
-    //     });
-    // }
-})
 
 // insert a script from method
 async function insertScript(fields, userId) {
-    const scriptId = await ScriptsCollection.insertAsync({ projectId: fields.projectId, title: fields.title, inTrash: fields.inTrash, createdAt: new Date(), userId });
-
-    if (fields.text) addCardsOnImport(fields, userId, scriptId)
-
-
+    if (!fields.text) fields.text = " "
+    const scriptId = await ScriptsCollection.insertAsync({ text: fields.text, projectId: fields.projectId, title: fields.title, inTrash: fields.inTrash, createdAt: new Date(), userId });
 }
 
 Meteor.methods({
     'scripts.insert'(fields) {
-        console.log(fields);
         const userId = Meteor.userId();
         if (!Meteor.userId()) return
         fields.inTrash = false
         fields.createdAt = new Date()
         insertScript(fields, userId);
     },
+    'script.update'(fields) {
+        updateScript(fields);
+    },
 })
 
 
 
-async function addCardsOnImport(fields, userId, scriptId) {
 
-    const cards = splitFountainIntoCards(fields.text)
+async function updateScript(fields) {
 
-    let index = 0; // Initialize the index variable
-
-    cards.forEach(card => {
-        insertCard({ index, text: card, createdAt: new Date(), scriptId, index }, userId)
-        index++;
-
-    });
+    ScriptsCollection.update(fields._id, { $set: { text: fields.text, sessionId: fields.sessionId } });
 }

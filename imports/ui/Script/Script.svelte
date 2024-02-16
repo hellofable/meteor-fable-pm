@@ -1,25 +1,25 @@
 <script>
-    export let scriptId, _state;
+    export let meta, _state;
     import { ScriptsCollection } from "../../api/scripts";
     import Cards from "./Cards/Cards.svelte";
     import { onMount, onDestroy } from "svelte";
     import { cardMetaHelpers } from "/imports/code/clientCards/cardMetaHelpers";
+    import TextEditor from "./TextEditor/TextEditor.svelte";
+    import Editor from "./Editor/Editor.svelte";
+    import CodeMirror from "./CodeMirror/CodeMirror.svelte";
+    import { windows } from "prosemirror-view/src/browser";
 
     let script;
-    $m: Meteor.subscribe("scripts.one", scriptId);
+    $m: Meteor.subscribe("scripts.one", meta.params.sid);
     $m: {
-        script = ScriptsCollection.findOne(scriptId);
+        script = ScriptsCollection.findOne(meta.params.sid);
+        console.log(script?.title);
         $_state.current.script = script;
     }
 
-    // Meteor.call("cards.getAll", scriptId, (error, result) => {
-    //     if (error) {
-    //         console.error("Error calling getValueFromServer:", error);
-    //     } else {
-    //         // createClientCards(result);
-    //         // console.log("Value from server:", result);
-    //     }
-    // });
+    onMount(() => {});
+
+    $: console.log(script);
 
     onMount(() => {
         setTimeout(() => {
@@ -31,8 +31,20 @@
     onDestroy(() => {
         $_state.current.script.title = "";
     });
+
+    window.s = ScriptsCollection;
 </script>
 
 {#if script}
-    <Cards {script} {_state} />
+    <div class="script">
+        <CodeMirror {script} {_state}></CodeMirror>
+    </div>
 {/if}
+
+<style>
+    .script {
+        background: #ede7df;
+        /* height: calc(100vh - 55px); */
+        overflow: hidden;
+    }
+</style>

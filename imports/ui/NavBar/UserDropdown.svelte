@@ -19,7 +19,7 @@
         <i class="bi bi-sliders2" />
     </button>
     <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href={null}>Some Stuff</a></li>
+        <li><a class="dropdown-item" href="/">Home</a></li>
         <li><hr class="dropdown-divider" /></li>
         <li><a class="dropdown-item" href={null}>Account Info</a></li>
 

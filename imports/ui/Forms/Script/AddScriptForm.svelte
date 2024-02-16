@@ -4,9 +4,7 @@
     import { _state } from "/imports/code/state";
     import { Meteor } from "meteor/meteor";
     import { onMount } from "svelte";
-    export let meta;
 
-    console.log(meta);
     let showFile = false;
 
     let fileInput, fileContents;

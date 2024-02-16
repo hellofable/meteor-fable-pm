@@ -1,0 +1,21 @@
+.ͼ5 {
+    opacity: 0.2;
+}
+
+.ͼ7 {
+    text-decoration: none !important;
+}
+
+.cm-focused {
+    border: none !important;
+    outline: none !important;
+}
+
+.cm-editor {
+    height: calc(100vh - 55px);
+}
+
+.cm-minimap-gutter {
+    background: none;
+    opacity: 0.3;
+}

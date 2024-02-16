@@ -1,6 +1,6 @@
 <script>
     export let _state;
-    let buttons = ["scripts", "browser"];
+    let buttons = ["projects", "browser"];
     function clickButton(buttonTitle) {
         $_state.sidebar.selected = buttonTitle;
     }

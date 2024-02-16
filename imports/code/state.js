@@ -38,8 +38,8 @@ const stateWritable = writable({
 
 
         },
-        selected: "scripts",
-        show: true,
+        selected: "projects",
+        show: false,
         showOptions: false,
         inTrash: false
     },
