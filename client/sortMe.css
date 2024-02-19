@@ -11,11 +11,36 @@
     outline: none !important;
 }
 
-.cm-editor {
-    height: calc(100vh - 55px);
 
-    font-size: 19px;
+body.light .cm-editor {
+    background: rgb(214, 214, 214);
 }
+
+body.dark .cm-editor {
+    background: rgb(46, 46, 46);
+}
+
+
+.cm-editor {
+    font-size: 19px;
+    flex: 1;
+
+    border-radius: 10px;
+}
+
+.cm-gutters {
+
+    /* min-width: 35px; */
+}
+
+body.light .cm-gutters {
+    background: rgb(237, 237, 237) !important;
+}
+
+body.dark .cm-gutters {
+    background: rgb(73, 73, 73) !important;
+}
+
 
 .cm-minimap-gutter {
     background: none;
@@ -31,4 +56,22 @@
 span[title="Fold line"] {
     position: relative;
     top: -5px;
+}
+
+
+.rb {
+    border: 5px solid red;
+}
+
+.gb {
+    border: 5px solid green;
+}
+
+.bb {
+    border: 5px solid bluez;
+}
+
+.cm-gutters {
+
+    border-right: none !important;
 }

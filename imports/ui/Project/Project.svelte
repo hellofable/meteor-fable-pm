@@ -18,10 +18,9 @@
     });
 </script>
 
-<div class="d-flex">
-    <div class="d-flex flex-column w-100">
-        <Route path="/script/:sid" let:meta>
-            <Script {_state} {meta} />
-        </Route>
-    </div>
-</div>
+<Route path="/script/:sid" let:meta>
+    <Script {_state} {meta} />
+</Route>
+
+<style>
+</style>

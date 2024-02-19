@@ -30,12 +30,13 @@
                 <i class="bi bi-arrow-right-circle-fill" /></a
             >
         </div>
+
+        <Scripts {project}></Scripts>
         <div class="text-end">
-            <div on:click={newScript} class="btn btn-secondary btn-sm mt-2">
+            <div on:click={newScript} class="btn btn-secondary btn-sm mb-2">
                 <i class="bi bi-plus-circle"></i> Add Script
             </div>
         </div>
-        <Scripts {project}></Scripts>
     </div>
     <!-- <ProjectCardDropdown {_state} {project} /> -->
 </div>

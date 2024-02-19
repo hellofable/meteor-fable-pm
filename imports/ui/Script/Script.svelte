@@ -40,15 +40,13 @@
 </script>
 
 {#if script}
-    <div class="script">
+    <div class="script h-100">
         <CodeMirror {script} {_state}></CodeMirror>
     </div>
 {/if}
 
 <style>
     .script {
-        background: #ede7df;
-
         overflow: hidden;
     }
 </style>

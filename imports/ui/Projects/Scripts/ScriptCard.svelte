@@ -8,11 +8,11 @@
     }
 </script>
 
-<a on:click={openScript} class="project-link me-2">{script.title}</a>
+<span on:click={openScript} class="badge me-2 text-bg-secondary">{script.title}</span>
 
 <style>
-    a {
-        text-decoration: none;
+    .badge {
         cursor: pointer;
+        color: rgb(195, 195, 195) !important;
     }
 </style>

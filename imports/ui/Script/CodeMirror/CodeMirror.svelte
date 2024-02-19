@@ -1,8 +1,10 @@
 <script>
     import { EditorState } from "@codemirror/state";
     import { EditorView, keymap, lineNumbers } from "@codemirror/view";
-    import { markdown, markdownKeymap } from "@codemirror/lang-markdown";
+    import { markdown, markdownKeymap } from "./fountain/markdown";
+    import { ftn } from "./fountain/fountain-lang";
     import { defaultKeymap, history, historyKeymap } from "@codemirror/commands";
+    import { autocompletion } from "@codemirror/autocomplete";
     import {
         defaultHighlightStyle,
         syntaxHighlighting,
@@ -11,6 +13,22 @@
         foldCode,
         foldEffect,
     } from "@codemirror/language";
+
+    const lang = ftn();
+
+    function myCompletions(context) {
+        let word = context.matchBefore(/\w*/);
+        if (word.from == word.to && !context.explicit) return null;
+        return {
+            from: word.from,
+            options: [
+                { label: "GRACE", type: "keyword" },
+                { label: "DEVIN", type: "keyword" },
+                { label: "KILGORE", type: "keyword" },
+                { label: "SCOTTSDALE", type: "keyword" },
+            ],
+        };
+    }
 
     export let script, _state;
     import { onMount } from "svelte";
@@ -22,19 +40,22 @@
         syntaxHighlighting(defaultHighlightStyle),
         keymap.of([defaultKeymap, markdownKeymap, historyKeymap]),
         EditorView.lineWrapping,
-        lineNumbers(),
-        foldGutter(),
-        showMinimap.compute(["doc"], (state) => {
-            return {
-                create,
-                /* optional */
-                displayText: "blocks",
-                showOverlay: "always",
-                gutters: [{ 1: "#00FF00", 2: "#00FF00" }],
-            };
-        }),
+        // lineNumbers(),
+        // foldGutter(),
+        // showMinimap.compute(["doc"], (state) => {
+        //     return {
+        //         create,
+        //         /* optional */
+        //         displayText: "blocks",
+        //         showOverlay: "always",
+        //         gutters: [{ 1: "#00FF00", 2: "#00FF00" }],
+        //     };
+        // }),
+        autocompletion({ activateOnTyping: false, override: [myCompletions] }),
+        EditorView.contentAttributes.of({ spellcheck: "true" }),
     ];
-
+    // contentAttributes.of({ style: "font-size : " + size + "pt" })
+    // for minimap
     let create = (EditorView) => {
         const dom = document.createElement("div");
         return { dom };
@@ -77,3 +98,11 @@
     }}
     id="editor"
 ></div>
+
+<style>
+    #editor {
+        display: flex;
+        height: 100%;
+        padding: 20px;
+    }
+</style>

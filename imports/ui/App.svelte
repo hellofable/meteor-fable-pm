@@ -33,13 +33,29 @@
 
 <Modal {_state} />
 {#if $_currentUser}
-  <div class="d-flex">
+  <div class="d-flex h-100">
     <SideBar {_state}></SideBar>
     <div class="d-flex flex-column w-100">
       <NavBar {_state}></NavBar>
-      <Route path="/project/:pid/*" let:meta>
-        <Project {meta} {_state} />
-      </Route>
+      <div class="flex-grow-1 right-wrapper">
+        <Route path="/project/:pid/*" let:meta>
+          <Project {meta} {_state} />
+        </Route>
+      </div>
+      <div class="bg-primary"></div>
     </div>
   </div>
 {/if}
+
+{#if !$_currentUser}
+  No Account
+  <Route path="/*" let:meta>
+    <Account {_state} {meta}></Account>
+  </Route>
+{/if}
+
+<style>
+  .right-wrapper {
+    min-height: 0;
+  }
+</style>
